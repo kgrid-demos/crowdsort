@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+		<link rel="stylesheet" href="css/debug.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<style>
+
+:root {
+	/* colors */
+	--white      : #ffffff;
+	--orange     : #ff691f;
+	--yellow     : #fab81e;
+	--lightgreen : #7fdbb6;
+	--green      : #19cf86;
+	--lightblue  : #91d2fa;
+	--blue       : #1b95e0;
+	--grey       : #abb8c2;
+	--red        : #e81c4f;
+	--pink       : #f58ea8;
+	--purple     : #981ceb;
+	--black      : #000000;
+
+	/* font (default) */
+	font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
+}
+
+#app {
+	/* grid */
+	display: grid;
+	/* grid:4x3 */
+	grid-template-areas: /* adjusts the distribution of the boxes*/
+		". .";
+	/* spacing */
+	padding: 100px; grid-gap: 35px;
+	/* fullscreen */
+	width: 100vw; height: 100vh;
+}
+
+img {
+	/* size */
+	width: 3.5rem; height: 3.5rem;
+	/* center offset */
+	vertical-align: calc(-0.12109375em);
+}
+
+.grid-item {
+	/* grid */
+	display: grid;
+	/* grid:1x2 */
+	grid-template-rows: 65% 35%;
+	/* background */
+	background: whitesmoke;
+	/* material-ui.com/#/components/paper */
+	border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
+	/* transform */
+	transition: transform 500ms;
+}
+
+.grid-item:hover {
+	/* transition */
+	transition: transform 300ms;
+	/* transform */
+	transform: scale(1.1);
+}
+
+.grid-cell--top, .grid-cell--bottom {
+	/* flex */
+	display: flex;
+	/* flex:center */
+	justify-content: center; align-items: center;
+}
+
+.grid-cell--top    { border-radius: 4px 4px 0 0; }
+.grid-cell--bottom { font-weight: 900; font-size: 1.75rem; }
+
+.bounce { animation: bounce 1s; }
+
+@keyframes bounce {
+	  0% { transform: rotate(  0deg) scale(1.0); }
+	 33% { transform: rotate( 12deg) scale(1.2); }
+	 67% { transform: rotate(-12deg) scale(0.8); }
+	100% { transform: rotate(  0deg) scale(1.0); }
+}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="app" :style="gradient(active)">
+			<swatch
+				v-for="swatch in randomize_swatches"
+				@click.native="activate(swatch)"
+				:active="active" :swatch="swatch" :effect="gradient"
+			></swatch>
+		</div>
+
+		<script>
+
+"use strict"
+
+// emojify returns the corresponding emoji image
+function emojify(name) {
+	var out = `<img src="emojis/` + name + `.png">`
+	return out
+}
+
+Vue.component("swatch", {
+	props: ["active", "swatch", "effect"],
+	template: `
+		<div class="grid-item">
+			<div class="grid-cell--top" :style="effect(swatch)" >
+				<span
+					v-html="swatch.emoji"
+					:class="{ bounce: swatch == active }"
+				></span>
+			</div>
+			<div class="grid-cell--bottom" :style="{ color: swatch.color }">
+				{{ swatch.color.toUpperCase() }}
+			</div>
+		</div>
+	`
+})
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		active: "",
+		swatches: [
+		    { emoji: emojify("unicorn"    ), color: "#002E5E" },
+				{ emoji: emojify("whale"   ), 	 color: "#ff691f" },
+				{ emoji: emojify("skull"   ), 	 color: "#1b95e0" },
+				{ emoji: emojify("wave"   ),     color: "#fab81e" },
+				{ emoji: emojify("wolf"   ),     color: "#ff691f" },
+				{ emoji: emojify("wizard"   ),   color: "#7fdbb6" },
+				{ emoji: emojify("tiger"   ),    color: "#981ceb" },
+				{ emoji: emojify("sirius"   ),   color: "#91d2fa" },
+				{ emoji: emojify("magic"   ),    color: "#e81c4f" },
+				{ emoji: emojify("lumos"   ),    color: "#91d2fa" },
+				{ emoji: emojify("lion"   ),     color: "#ff691f" },
+
+		],
+	},
+
+	computed:{
+		randomize_swatches : function() {
+			// Calculations to randomize 
+			var random_number = Math.floor(Math.random() * 11);
+			var random_number2 = Math.floor(Math.random() * 11);
+			while(random_number == random_number2){
+					random_number2 = Math.floor(Math.random() * 11);
+			}
+			// Return array with two swatches 
+			var a = []
+			a.push(this.swatches[random_number])
+			a.push(this.swatches[random_number2])
+			return a		
+		}
+	},
+	methods: {
+		// activate actives a swatch (emoji/color)
+		activate: function (swatch) {
+			this.active = swatch
+		},
+		// gradient returns a precomposed gradient
+		gradient: function (swatch) {
+			return {
+				background: swatch.color,
+			}
+		}
+	}
+})
+
+		</script>
+
+	</body>
+</html>
