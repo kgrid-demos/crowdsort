@@ -4,8 +4,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
-		<link rel="stylesheet" href="css/debug.css">
-    <link rel="stylesheet" href="normalize.css">
+<!--		<link rel="stylesheet" href="css/debug.css">-->
+        <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<style>
@@ -73,6 +73,8 @@
 .grid-cell--bottom { font-weight: 900; font-size: 1.75rem; }
 
 .bounce { animation: bounce 1s; }
+            
+
 
 @keyframes bounce {
 	  0% { transform: rotate(  0deg) scale(1.0); }
@@ -86,13 +88,13 @@
 	<body>
 
 
-        <div style=""> <h1> Which is riskier? </h1>  </div>
+        <div style=""> <h1> Which drug poses the greater risk? </h1>  </div>
 
 		<div id="app" :style="gradient(active)">
 
 			<swatch
 				v-for="swatch in randomize_swatches"
-				@click.native="activate(swatch); findother(randomize_swatches)"
+				@click.native="activate(swatch); findother(randomize_swatches);"
 				:active="active" :swatch="swatch" :effect="gradient"
 
 			></swatch>
@@ -143,7 +145,7 @@ var app = new Vue({
 		],
 
         answer: "",
-				other:"",
+        other:"",
 
 	},
 
@@ -166,9 +168,11 @@ var app = new Vue({
 		// activate actives a swatch (color)
 		activate: function (swatch) {
 			this.active = swatch
-      this.answer = swatch.drug
-
+            this.answer = swatch.drug
+            // reloads the drug selection; 1 second before reload
+            setTimeout(function(){window.location.reload()}, 1000)
 		},
+        // finds and saves the drug not chosen
 		findother: function (Swatcharray) {
 			if (this.answer == Swatcharray[0].drug) {
 				 this.other = Swatcharray[1].drug }
