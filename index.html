@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
 		<link rel="stylesheet" href="css/debug.css">
-        <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<style>
@@ -84,21 +84,21 @@
 		</style>
 	</head>
 	<body>
-        
-        
+
+
         <div style=""> <h1> Which is riskier? </h1>  </div>
 
 		<div id="app" :style="gradient(active)">
-            
+
 			<swatch
 				v-for="swatch in randomize_swatches"
-				@click.native="activate(swatch)"
+				@click.native="activate(swatch); findother(randomize_swatches)"
 				:active="active" :swatch="swatch" :effect="gradient"
-                
+
 			></swatch>
-            
-            <span> {{answer}} </span>
-            
+
+            <span> Answered: {{answer}} and not: {{other}} </span>
+
 		</div>
 
 		<script>
@@ -141,31 +141,38 @@ var app = new Vue({
 
 
 		],
-        
+
         answer: "",
+				other:"",
 
 	},
 
 	computed:{
 		randomize_swatches : function() {
-			// Calculations to randomize 
+			// Calculations to randomize
 			var random_number = Math.floor(Math.random() * 11);
 			var random_number2 = Math.floor(Math.random() * 11);
 			while(random_number == random_number2){
 					random_number2 = Math.floor(Math.random() * 11);
 			}
-			// Return array with two swatches 
+			// Return array with two swatches
 			var a = []
 			a.push(this.swatches[random_number])
 			a.push(this.swatches[random_number2])
-			return a		
+			return a
 		}
 	},
 	methods: {
 		// activate actives a swatch (color)
 		activate: function (swatch) {
 			this.active = swatch
-            this.answer = swatch.drug
+      this.answer = swatch.drug
+
+		},
+		findother: function (Swatcharray) {
+			if (this.answer == Swatcharray[0].drug) {
+				 this.other = Swatcharray[1].drug }
+				 else { this.other = Swatcharray[0].drug }
 		},
 		// gradient returns a precomposed gradient
 		gradient: function (swatch) {
