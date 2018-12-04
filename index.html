@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
 		<link rel="stylesheet" href="css/debug.css">
+        <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<style>
@@ -37,15 +38,9 @@
 	/* spacing */
 	padding: 100px; grid-gap: 35px;
 	/* fullscreen */
-	width: 100vw; height: 100vh;
+	width: 100vw; height: 80vh;
 }
 
-img {
-	/* size */
-	width: 3.5rem; height: 3.5rem;
-	/* center offset */
-	vertical-align: calc(-0.12109375em);
-}
 
 .grid-item {
 	/* grid */
@@ -89,24 +84,27 @@ img {
 		</style>
 	</head>
 	<body>
+        
+        
+        <div style=""> <h1> Which is riskier? </h1>  </div>
 
 		<div id="app" :style="gradient(active)">
+            
 			<swatch
 				v-for="swatch in randomize_swatches"
 				@click.native="activate(swatch)"
 				:active="active" :swatch="swatch" :effect="gradient"
+                
 			></swatch>
+            
+            <span> {{answer}} </span>
+            
 		</div>
 
 		<script>
 
 "use strict"
 
-// emojify returns the corresponding emoji image
-function emojify(name) {
-	var out = `<img src="emojis/` + name + `.png">`
-	return out
-}
 
 Vue.component("swatch", {
 	props: ["active", "swatch", "effect"],
@@ -114,12 +112,11 @@ Vue.component("swatch", {
 		<div class="grid-item">
 			<div class="grid-cell--top" :style="effect(swatch)" >
 				<span
-					v-html="swatch.emoji"
 					:class="{ bounce: swatch == active }"
 				></span>
 			</div>
 			<div class="grid-cell--bottom" :style="{ color: swatch.color }">
-				{{ swatch.color.toUpperCase() }}
+				{{ swatch.drug.toUpperCase() }}
 			</div>
 		</div>
 	`
@@ -130,19 +127,23 @@ var app = new Vue({
 	data: {
 		active: "",
 		swatches: [
-		    { emoji: emojify("unicorn"    ), color: "#002E5E" },
-				{ emoji: emojify("whale"   ), 	 color: "#ff691f" },
-				{ emoji: emojify("skull"   ), 	 color: "#1b95e0" },
-				{ emoji: emojify("wave"   ),     color: "#fab81e" },
-				{ emoji: emojify("wolf"   ),     color: "#ff691f" },
-				{ emoji: emojify("wizard"   ),   color: "#7fdbb6" },
-				{ emoji: emojify("tiger"   ),    color: "#981ceb" },
-				{ emoji: emojify("sirius"   ),   color: "#91d2fa" },
-				{ emoji: emojify("magic"   ),    color: "#e81c4f" },
-				{ emoji: emojify("lumos"   ),    color: "#91d2fa" },
-				{ emoji: emojify("lion"   ),     color: "#ff691f" },
+		    { color: "#002E5E" , drug: "Levothyroxine"},
+				{ color: "#ff691f", drug: "Lisinopril"},
+				{ color: "#1b95e0", drug: "Atorvastatin" },
+				{ color: "#fab81e" , drug: "Metformin"},
+				{ color: "#ff691f" , drug: "Amlodipine"},
+				{ color: "#7fdbb6" , drug: "Metoprolol"},
+				{ color: "#981ceb", drug: "Omeprazole" },
+				{ color: "#91d2fa", drug: "Simvastatin" },
+				{ color: "#e81c4f", drug: "Losartan" },
+				{ color: "#91d2fa", drug: "Albuterol" },
+				{ color: "#ff691f", drug: "Gabapentin" },
+
 
 		],
+        
+        answer: "",
+
 	},
 
 	computed:{
@@ -161,9 +162,10 @@ var app = new Vue({
 		}
 	},
 	methods: {
-		// activate actives a swatch (emoji/color)
+		// activate actives a swatch (color)
 		activate: function (swatch) {
 			this.active = swatch
+            this.answer = swatch.drug
 		},
 		// gradient returns a precomposed gradient
 		gradient: function (swatch) {
