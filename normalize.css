@@ -31,8 +31,8 @@ section {
 }
 
 h1 {
-  font-size: 8em;
-  justify-content: center; align-items: center;
+  font-size: 4em;
+  text-align:  center;
   margin: 0.67em 0;
 }
 
