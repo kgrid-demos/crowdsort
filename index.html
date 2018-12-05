@@ -5,25 +5,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
 <!--		<link rel="stylesheet" href="css/debug.css">-->
-        <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 		<style>
 
 :root {
-	/* colors */
-	--white      : #ffffff;
-	--orange     : #ff691f;
-	--yellow     : #fab81e;
-	--lightgreen : #7fdbb6;
-	--green      : #19cf86;
-	--lightblue  : #91d2fa;
-	--blue       : #1b95e0;
-	--grey       : #abb8c2;
-	--red        : #e81c4f;
-	--pink       : #f58ea8;
-	--purple     : #981ceb;
-	--black      : #000000;
 
 	/* font (default) */
 	font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
@@ -36,7 +23,8 @@
 	grid-template-areas: /* adjusts the distribution of the boxes*/
 		". .";
 	/* spacing */
-	padding: 100px; grid-gap: 35px;
+	padding: 100px;
+	grid-gap: 40px;
 	/* fullscreen */
 	width: 100vw; height: 80vh;
 }
@@ -46,27 +34,28 @@
 	/* grid */
 	display: grid;
 	/* grid:1x2 */
-	grid-template-rows: 65% 35%;
+	grid-template-rows: 25% 35%;
 	/* background */
 	background: whitesmoke;
 	/* material-ui.com/#/components/paper */
 	border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
 	/* transform */
-	transition: transform 500ms;
+	transition: transform 250ms;
 }
 
 .grid-item:hover {
 	/* transition */
-	transition: transform 300ms;
+	transition: transform 250ms;
 	/* transform */
-	transform: scale(1.1);
+	transform: scale(1.06);
 }
 
 .grid-cell--top, .grid-cell--bottom {
 	/* flex */
 	display: flex;
 	/* flex:center */
-	justify-content: center; align-items: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .grid-cell--top    { border-radius: 4px 4px 0 0; }
@@ -88,7 +77,10 @@
 	<body>
 
 
-        <div style=""> <h1> Which drug poses the greater risk? </h1>  </div>
+        <div style=""> <h1> Which drug poses the greater risk? </h1>
+				<h3> Click one or the other </h3> </div>
+
+
 
 		<div id="app" :style="gradient(active)">
 
@@ -99,8 +91,13 @@
 
 			></swatch>
 
-            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2> </span>
+            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
+			 </span>
 
+		</div>
+
+		<div style="">
+         <span><h3>Footer</h3></span>
 		</div>
 
 		<script>
@@ -333,7 +330,7 @@ var app = new Vue({
 			var a = []
 			a.push(this.swatches[random_number])
 			a.push(this.swatches[random_number2])
-			console.log(a);
+			//console.log(a);
 			var random_number3 = Math.floor(Math.random() * 2);
 			var number4 = 0;
 			a[0].color = this.possibleColors[random_number3];
