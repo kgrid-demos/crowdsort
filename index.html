@@ -93,7 +93,7 @@
 			></swatch>
 
             <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
-			 </span>
+            </span>
 
 		</div>
 
@@ -110,7 +110,11 @@ Vue.component("swatch", {
 	props: ["active", "swatch", "effect"],
 	template: `
 		<div class="grid-item">
+
 			<div class="grid-cell--top" :style="effect(swatch)" >
+<span><div class="divbutton">
+   <button type="button">VERY CERTAIN</button>
+</div></span>
 				<span
 					:class="{ bounce: swatch == active }"
 				></span>
