@@ -27,7 +27,7 @@ html {
     width: 100px;
     padding-left: 25px;
     align-content: center;
-    background: #ffff;
+/*    background-blend-mode: overlay;*/
 }
 
 button {

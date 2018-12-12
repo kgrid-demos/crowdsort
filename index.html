@@ -105,16 +105,19 @@
 
 "use strict"
 
-
+//<span><div class="divbutton">
+//   <button type="button">VERY CERTAIN</button>
+//</div></span>
 Vue.component("swatch", {
 	props: ["active", "swatch", "effect"],
 	template: `
-		<div class="grid-item">
+		<div class="grid-item" >
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
-<span><div class="divbutton">
-   <button type="button">VERY CERTAIN</button>
-</div></span>
+                <span><div class="divbutton">
+                        <button type="button">VERY CERTAIN</button>
+                        <button type="button">NOT VERY CERTAIN</button>
+                </div></span>
 				<span
 					:class="{ bounce: swatch == active }"
 				></span>
