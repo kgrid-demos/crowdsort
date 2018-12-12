@@ -1,4 +1,4 @@
-# CrowdSort 💪
+# CrowdSort 
 
 CrowdSort is a web app concept in prototype format.
 
@@ -12,3 +12,35 @@ Although CrowdSorting could be applied to many things, the first use case is a m
 Imagine if experienced pharmacists could routinely use a system to compare two drugs head-to-head and tell the system which of the two drugs carried the greater risk. If this is possible, then, using a "crowd" of pharmacists, it may be possible to develop and test the reliability and validity of a relative risk measurement for medications. 
 
 This idea is the starting point for CrowdSort. 
+
+
+## Getting Started
+
+....
+
+### Prerequisites
+
+No additional software is required. 
+
+
+## Built With
+
+* [Vue.js](https://vuejs.org/) - JavaScript Framework
+
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+Allen Flynn
+Natalie Lampa 
+Sara Kurosu
+Jack Allan
+Koki Sasagawa
+
+
+## Acknowledgments
+
+* Michigan Medicine
