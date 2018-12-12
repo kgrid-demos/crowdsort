@@ -21,6 +21,26 @@ html {
 
 }
 
+/*test*/
+.divbutton {
+    height: 30px;
+    width: 100px;
+    padding-left: 25px;
+    align-content: center;
+    background: #ffff;
+}
+
+button {
+    display: none;
+    align-content: center;
+}
+
+.divbutton:hover button {
+    align-content: center;
+    display: block;
+}
+/*test*/
+
 article,
 aside,
 footer,
