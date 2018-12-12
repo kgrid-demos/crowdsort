@@ -34,10 +34,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-Allen Flynn
-Natalie Lampa 
-Sara Kurosu
-Jack Allan
+Allen Flynn  
+Natalie Lampa  
+Sara Kurosu  
+Jack Allan  
 Koki Sasagawa
 
 
