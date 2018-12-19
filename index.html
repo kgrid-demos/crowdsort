@@ -87,17 +87,17 @@
 				<h3> Click one or the other </h3> </div>
 
 
-
 		<div id="app" :style="gradient(active)">
 
 			<swatch
 				v-for="swatch in randomize_swatches"
 				@click.native="activate(swatch); findother(randomize_swatches);"
+                @clicked="onClickedChild"
 				:active="active" :swatch="swatch" :effect="gradient"
 
 			></swatch>
 
-            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
+            <span> <h2> Answered: {{answer}} greater risk than: {{other}} and clicked {{confidenceIndicator}}  </h2>
             </span>
 
 		</div>
@@ -110,9 +110,7 @@
 
 "use strict"
 
-//<span><div class="divbutton">
-//   <button type="button">VERY CERTAIN</button>
-//</div></span>
+
 Vue.component("swatch", {
 	props: ["active", "swatch", "effect"],
 	template: `
@@ -120,8 +118,8 @@ Vue.component("swatch", {
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
                 <span><div class="divbutton">
-                        <button type="button" class="left">Not Very Certain</button>
-                        <button type="button" class="right">Very Certain</button>
+                        <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>
+                        <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>
                 </div></span>
 				<span
 					:class="{ bounce: swatch == active }"
@@ -131,7 +129,16 @@ Vue.component("swatch", {
 				{{ swatch.drug.toUpperCase() }}
 			</div>
 		</div>
-	`
+	`,
+    methods:  {
+        onClickButtonLeft (event) {
+        this.$emit('clicked', "Not Very Certain")
+    },
+        onClickButtonRight (event) {
+        this.$emit('clicked', "Very Certain")
+    }
+}
+    
 })
 
 var app = new Vue({
@@ -326,6 +333,7 @@ var app = new Vue({
 
 		],
 
+        confidenceIndicator: "",
         answer: "",
         other:"",
 
@@ -353,6 +361,9 @@ var app = new Vue({
 		}
 	},
 	methods: {
+        onClickedChild: function (confidenceIn) {
+            this.confidenceIndicator = confidenceIn
+        },
 		// activate actives a swatch (color)
 		activate: function (swatch) {
 			this.active = swatch
