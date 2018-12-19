@@ -35,7 +35,7 @@
 	/* grid */
 	display: grid;
 	/* grid:1x2 */
-	grid-template-rows: 25% 35%;
+	grid-template-rows: 28% 35%;
 	/* background */
 	background: whitesmoke;
 	/* material-ui.com/#/components/paper */
@@ -49,6 +49,11 @@
 	transition: transform 250ms;
 	/* transform */
 	transform: scale(1.06);
+}
+
+/* hover over - certain/not certain button */
+.grid-item:hover .divbutton {
+    display: block;
 }
 
 .grid-cell--top, .grid-cell--bottom {
@@ -115,8 +120,8 @@ Vue.component("swatch", {
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
                 <span><div class="divbutton">
-                        <button type="button">NOT VERY CERTAIN</button>
-                        <button type="button">VERY CERTAIN</button>
+                        <button type="button" class="left">Not Very Certain</button>
+                        <button type="button" class="right">Very Certain</button>
                 </div></span>
 				<span
 					:class="{ bounce: swatch == active }"

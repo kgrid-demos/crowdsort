@@ -25,20 +25,31 @@ html {
 .divbutton {
     height: 30px;
     width: 400px;
-    padding-left: 140px;
-/*    align-content: center;*/
-/*    background-blend-mode: overlay;*/
+    display: none;
 }
 
 button {
-    display: none;
-/*    align-content: center;*/
+    display: inline;
+    border: 3px solid #b3b3b3;
+    border-radius: 10px;
+    font-weight: bold;
+
 }
 
+button.left {
+    float: left;
+}
+
+button.right {
+    float: right;
+}
+
+/*
 .divbutton:hover button {
-/*    align-content: center;*/
+    align-content: center;
     display: block;
 }
+*/
 /*test*/
 
 article,
