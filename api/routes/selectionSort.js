@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 // GET request that fetches all the data
 router.get('/', (req, res, next) => {
   Selection.find()
-    .select('date hasExpectedSolution _id')
+    .select('date time hasExpectedSolution expectedSolution expectedSelectionConfidence userSelection userSelectionConfidence notSelected _id')
     .exec()
     .then(docs => {
       const response = {
@@ -17,7 +17,13 @@ router.get('/', (req, res, next) => {
         selection: docs.map(doc => {
           return {
             date: doc.date,
+            time: doc.time,
             hasExpectedSolution: doc.hasExpectedSolution,
+            expectedSolution: doc.expectedSolution,
+            expectedSelectionConfidence: doc.expectedSelectionConfidence,
+            userSelection: doc.userSelection,
+            userSelectionConfidence: doc.userSelectionConfidence,
+            notSelected: doc.notSelected,
             _id: doc._id
           }
         })
@@ -38,7 +44,7 @@ router.get('/', (req, res, next) => {
 router.get('/:userid', (req, res, next) => {
   const id = req.params.userid;
   Selection.findById(id)
-    .select('date hasExpectedSolution _id')
+    .select('date time hasExpectedSolution expectedSolution expectedSelectionConfidence userSelection userSelectionConfidence notSelected _id')
     .exec()
     .then(doc => {
       console.log('From database', doc);
@@ -106,7 +112,13 @@ router.post('/', (req, res, next) => {
   const selection = new Selection({
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
-    hasExpectedSolution: req.body.hasExpectedSolution
+    time: req.body.time,
+    hasExpectedSolution: req.body.hasExpectedSolution,
+    expectedSolution:req.body.expectedSolution,
+    expectedSelectionConfidence:req.body.expectedSelectionConfidence,
+    userSelection:req.body.userSelection,
+    userSelectionConfidence:req.body.userSelectionConfidence,
+    notSelected:req.body.notSelected
   });
   selection
     .save()
@@ -116,7 +128,13 @@ router.post('/', (req, res, next) => {
         message: 'Handling POST requests to selectionSort',
         createdSelection: {
           date: result.date,
+          time: result.time,
           hasExpectedSolution: result.hasExpectedSolution,
+          expectedSolution: result.expectedSolution,
+          expectedSelectionConfidence: result.expectedSelectionConfidence,
+          userSelection: result.userSelection,
+          userSelectionConfidence: result.userSelectionConfidence,
+          notSelected: result.notSelected,
           _id: result._id
         }
       });
