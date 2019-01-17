@@ -83,7 +83,7 @@
 	<body>
 
 
-        <div style=""> <h1> Which drug causes you to worry more? </h1>
+        <div style=""> <h1> Which drug poses the greater risk? </h1>
 				<h3> Click one or the other </h3> </div>
 
 
@@ -105,230 +105,10 @@
 		<div style="">
          <span><h3><img src="Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250"></h3></span>
 		</div>
-        
-        <div style="" align="right">
-            <button> Comparisons Remaining: {{}}</button>
-        </div>
 
 		<script>
 
 "use strict"
-
-var combinations =  [
-         [Lisinopril, Losartan],
-         [Lisinopril, Amlodipine],
-         [Lisinopril, Ibuprofen],
-         [Lisinopril, Aspirin],
-         [Lisinopril, Naproxen],
-         [Lisinopril, Alprazolam],
-         [Lisinopril, Clonazepam],
-         [Lisinopril, Lorazepam],
-         [Lisinopril, Amoxicillin],
-         [Lisinopril, Azithromycin],
-         [Lisinopril, Ciprofloxacin],
-         [Lisinopril, Metformin],
-         [Lisinopril, Glyburide],
-         [Lisinopril, Liraglutide],
-         [Lisinopril, Warfarin],
-         [Lisinopril, Rivaroxaban],
-         [Lisinopril, Apixaban],
-         [Lisinopril, Sertraline],
-         [Lisinopril, Citalopram],
-         [Lisinopril, Amitriptyline],
-         [Losartan, Amlodipine],
-         [Losartan, Ibuprofen],
-         [Losartan, Aspirin],
-         [Losartan, Naproxen],
-         [Losartan, Alprazolam],
-         [Losartan, Clonazepam],
-         [Losartan, Lorazepam],
-         [Losartan, Amoxicillin],
-         [Losartan, Azithromycin],
-         [Losartan, Ciprofloxacin],
-         [Losartan, Metformin],
-         [Losartan, Glyburide],
-         [Losartan, Liraglutide],
-         [Losartan, Warfarin],
-         [Losartan, Rivaroxaban],
-         [Losartan, Apixaban],
-         [Losartan, Sertraline],
-         [Losartan, Citalopram],
-         [Losartan, Amitriptyline],
-         [Amlodipine, Ibuprofen],
-         [Amlodipine, Aspirin],
-         [Amlodipine, Naproxen],
-         [Amlodipine, Alprazolam],
-         [Amlodipine, Clonazepam],
-         [Amlodipine, Lorazepam],
-         [Amlodipine, Amoxicillin],
-         [Amlodipine, Azithromycin],
-         [Amlodipine, Ciprofloxacin],
-         [Amlodipine, Metformin],
-         [Amlodipine, Glyburide],
-         [Amlodipine, Liraglutide],
-         [Amlodipine, Warfarin],
-         [Amlodipine, Rivaroxaban],
-         [Amlodipine, Apixaban],
-         [Amlodipine, Sertraline],
-         [Amlodipine, Citalopram],
-         [Amlodipine, Amitriptyline],
-         [Ibuprofen, Aspirin],
-         [Ibuprofen, Naproxen],
-         [Ibuprofen, Alprazolam],
-         [Ibuprofen, Clonazepam],
-         [Ibuprofen, Lorazepam],
-         [Ibuprofen, Amoxicillin],
-         [Ibuprofen, Azithromycin],
-         [Ibuprofen, Ciprofloxacin],
-         [Ibuprofen, Metformin],
-         [Ibuprofen, Glyburide],
-         [Ibuprofen, Liraglutide],
-         [Ibuprofen, Warfarin],
-         [Ibuprofen, Rivaroxaban],
-         [Ibuprofen, Apixaban],
-         [Ibuprofen, Sertraline],
-         [Ibuprofen, Citalopram],
-         [Ibuprofen, Amitriptyline],
-         [Aspirin, Naproxen],
-         [Aspirin, Alprazolam],
-         [Aspirin, Clonazepam],
-         [Aspirin, Lorazepam],
-         [Aspirin, Amoxicillin],
-         [Aspirin, Azithromycin],
-         [Aspirin, Ciprofloxacin],
-         [Aspirin, Metformin],
-         [Aspirin, Glyburide],
-         [Aspirin, Liraglutide],
-         [Aspirin, Warfarin],
-         [Aspirin, Rivaroxaban],
-         [Aspirin, Apixaban],
-         [Aspirin, Sertraline],
-         [Aspirin, Citalopram],
-         [Aspirin, Amitriptyline],
-         [Naproxen, Alprazolam],
-         [Naproxen, Clonazepam],
-         [Naproxen, Lorazepam],
-         [Naproxen, Amoxicillin],
-         [Naproxen, Azithromycin],
-         [Naproxen, Ciprofloxacin],
-         [Naproxen, Metformin],
-         [Naproxen, Glyburide],
-         [Naproxen, Liraglutide],
-         [Naproxen, Warfarin],
-         [Naproxen, Rivaroxaban],
-         [Naproxen, Apixaban],
-         [Naproxen, Sertraline],
-         [Naproxen, Citalopram],
-         [Naproxen, Amitriptyline],
-         [Alprazolam, Clonazepam],
-         [Alprazolam, Lorazepam],
-         [Alprazolam, Amoxicillin],
-         [Alprazolam, Azithromycin],
-         [Alprazolam, Ciprofloxacin],
-         [Alprazolam, Metformin],
-         [Alprazolam, Glyburide],
-         [Alprazolam, Liraglutide],
-         [Alprazolam, Warfarin],
-         [Alprazolam, Rivaroxaban],
-         [Alprazolam, Apixaban],
-         [Alprazolam, Sertraline],
-         [Alprazolam, Citalopram],
-         [Alprazolam, Amitriptyline],
-         [Clonazepam, Lorazepam],
-         [Clonazepam, Amoxicillin],
-         [Clonazepam, Azithromycin],
-         [Clonazepam, Ciprofloxacin],
-         [Clonazepam, Metformin],
-         [Clonazepam, Glyburide],
-         [Clonazepam, Liraglutide],
-         [Clonazepam, Warfarin],
-         [Clonazepam, Rivaroxaban],
-         [Clonazepam, Apixaban],
-         [Clonazepam, Sertraline],
-         [Clonazepam, Citalopram],
-         [Clonazepam, Amitriptyline],
-         [Lorazepam, Amoxicillin],
-         [Lorazepam, Azithromycin],
-         [Lorazepam, Ciprofloxacin],
-         [Lorazepam, Metformin],
-         [Lorazepam, Glyburide],
-         [Lorazepam, Liraglutide],
-         [Lorazepam, Warfarin],
-         [Lorazepam, Rivaroxaban],
-         [Lorazepam, Apixaban],
-         [Lorazepam, Sertraline],
-         [Lorazepam, Citalopram],
-         [Lorazepam, Amitriptyline],
-         [Amoxicillin, Azithromycin],
-         [Amoxicillin, Ciprofloxacin],
-         [Amoxicillin, Metformin],
-         [Amoxicillin, Glyburide],
-         [Amoxicillin, Liraglutide],
-         [Amoxicillin, Warfarin],
-         [Amoxicillin, Rivaroxaban],
-         [Amoxicillin, Apixaban],
-         [Amoxicillin, Sertraline],
-         [Amoxicillin, Citalopram],
-         [Amoxicillin, Amitriptyline],
-         [Azithromycin, Ciprofloxacin],
-         [Azithromycin, Metformin],
-         [Azithromycin, Glyburide],
-         [Azithromycin, Liraglutide],
-         [Azithromycin, Warfarin],
-         [Azithromycin, Rivaroxaban],
-         [Azithromycin, Apixaban],
-         [Azithromycin, Sertraline],
-         [Azithromycin, Citalopram],
-         [Azithromycin, Amitriptyline],
-         [Ciprofloxacin, Metformin],
-         [Ciprofloxacin, Glyburide],
-         [Ciprofloxacin, Liraglutide],
-         [Ciprofloxacin, Warfarin],
-         [Ciprofloxacin, Rivaroxaban],
-         [Ciprofloxacin, Apixaban],
-         [Ciprofloxacin, Sertraline],
-         [Ciprofloxacin, Citalopram],
-         [Ciprofloxacin, Amitriptyline],
-         [Metformin, Glyburide],
-         [Metformin, Liraglutide],
-         [Metformin, Warfarin],
-         [Metformin, Rivaroxaban],
-         [Metformin, Apixaban],
-         [Metformin, Sertraline],
-         [Metformin, Citalopram],
-         [Metformin, Amitriptyline],
-         [Glyburide, Liraglutide],
-         [Glyburide, Warfarin],
-         [Glyburide, Rivaroxaban],
-         [Glyburide, Apixaban],
-         [Glyburide, Sertraline],
-         [Glyburide, Citalopram],
-         [Glyburide, Amitriptyline],
-         [Liraglutide, Warfarin],
-         [Liraglutide, Rivaroxaban],
-         [Liraglutide, Apixaban],
-         [Liraglutide, Sertraline],
-         [Liraglutide, Citalopram],
-         [Liraglutide, Amitriptyline],
-         [Warfarin, Rivaroxaban],
-         [Warfarin, Apixaban],
-         [Warfarin, Sertraline],
-         [Warfarin, Citalopram],
-         [Warfarin, Amitriptyline],
-         [Rivaroxaban, Apixaban],
-         [Rivaroxaban, Sertraline],
-         [Rivaroxaban, Citalopram],
-         [Rivaroxaban, Amitriptyline],
-         [Apixaban, Sertraline],
-         [Apixaban, Citalopram],
-         [Apixaban, Amitriptyline],
-         [Sertraline, Citalopram],
-         [Sertraline, Amitriptyline],
-         [Citalopram, Amitriptyline]
-];
-
-
-
 
 
 Vue.component("swatch", {
@@ -337,15 +117,10 @@ Vue.component("swatch", {
 		<div class="grid-item">
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
-              
-              <!-- Certainty Option Buttons-->
-              <!--
-              <span><div class="divbutton">
+                <span><div class="divbutton">
                         <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>
                         <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>
                 </div></span>
-               -->
-              
 				<span
 					:class="{ bounce: swatch == active }"
 				></span>
@@ -355,9 +130,6 @@ Vue.component("swatch", {
 			</div>
 		</div>
 	`,
-     
-    <!-- Certainty Option Buttons -->
-    <!--
     methods:  {
         onClickButtonLeft (event) {
         this.$emit('clicked', "Not Very Certain")
@@ -365,8 +137,7 @@ Vue.component("swatch", {
         onClickButtonRight (event) {
         this.$emit('clicked', "Very Certain")
     }
-            }
-     -->
+}
     
 })
 
@@ -374,7 +145,7 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		active: "",
-		possibleColors: ["#002E5E","#FFA100"],
+		possibleColors: ["#7F6346","#4D657F"],
 		swatches: [
 		    { color: "", drug: "Levothyroxine"},
 				{ color: "", drug: "Lisinopril"},
