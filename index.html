@@ -83,7 +83,7 @@
 	<body>
 
 
-        <div style=""> <h1> Which drug poses the greater risk? </h1>
+        <div style=""> <h1> Which drug causes you to worry more? </h1>
 				<h3> Click one or the other </h3> </div>
 
 
@@ -97,7 +97,7 @@
 
 			></swatch>
 
-            <span> <h2> Answered: {{answer}} greater risk than: {{other}} and is {{confidenceIndicator}} about their choice </h2>
+            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
             </span>
 
 		</div>
@@ -105,6 +105,8 @@
 		<div style="">
          <span><h3><img src="Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250"></h3></span>
 		</div>
+        
+        <div align="right">Combinations Remaining: </div>
 
 		<script>
 
@@ -117,19 +119,23 @@ Vue.component("swatch", {
 		<div class="grid-item">
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
-                <span><div class="divbutton">
-                        <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>
-                        <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>
+              
+              <span><div class="divbutton">
+<!--                        <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>-->
+<!--                        <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>-->
                 </div></span>
-				<span
-					:class="{ bounce: swatch == active }"
-				></span>
-			</div>
-			<div class="grid-cell--bottom" :style="{ color: swatch.color }">
+                <span
+                    :class="{ bounce: swatch == active }"
+                ></span>
+            </div>
+			
+              <div class="grid-cell--bottom" :style="{ color: swatch.color }">
 				{{ swatch.drug.toUpperCase() }}
 			</div>
 		</div>
 	`,
+              
+              
     methods:  {
         onClickButtonLeft (event) {
         this.$emit('clicked', "Not Very Certain")
@@ -137,6 +143,8 @@ Vue.component("swatch", {
         onClickButtonRight (event) {
         this.$emit('clicked', "Very Certain")
     }
+
+              
 }
     
 })
@@ -145,7 +153,7 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		active: "",
-		possibleColors: ["#7F6346","#4D657F"],
+		possibleColors: ["#04315D","#D3A40A"],
 		swatches: [
 		    { color: "", drug: "Levothyroxine"},
 				{ color: "", drug: "Lisinopril"},
