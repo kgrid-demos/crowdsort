@@ -83,7 +83,7 @@
 	<body>
 
 
-        <div style=""> <h1> Which drug poses the greater risk? </h1>
+        <div style=""> <h1> Which drug causes you to worry more? </h1>
 				<h3> Click one or the other </h3> </div>
 
 
@@ -117,10 +117,10 @@ Vue.component("swatch", {
 		<div class="grid-item">
 
 			<div class="grid-cell--top" :style="effect(swatch)" >
-                <span><div class="divbutton">
-                        <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>
-                        <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>
-                </div></span>
+<!--                <span><div class="divbutton">-->
+<!--                        <button type="button" class="left" @click="onClickButtonLeft">Not Very Certain</button>-->
+<!--                        <button type="button" class="right" @click="onClickButtonRight">Very Certain</button>-->
+<!--                </div></span>-->
 				<span
 					:class="{ bounce: swatch == active }"
 				></span>
@@ -130,14 +130,14 @@ Vue.component("swatch", {
 			</div>
 		</div>
 	`,
-    methods:  {
-        onClickButtonLeft (event) {
-        this.$emit('clicked', "Not Very Certain")
-    },
-        onClickButtonRight (event) {
-        this.$emit('clicked', "Very Certain")
-    }
-}
+<!--    methods:  {-->
+<!--        onClickButtonLeft (event) {-->
+<!--        this.$emit('clicked', "Not Very Certain")-->
+<!--    },-->
+<!--        onClickButtonRight (event) {-->
+<!--        this.$emit('clicked', "Very Certain")-->
+<!--    }-->
+<!--}-->
     
 })
 
