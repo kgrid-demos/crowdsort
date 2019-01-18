@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "59258017-7aff-4ff1-98ba-8a791819e552",
+		"name": "CrowdSort1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/selectionSort",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n\t\"date\": \"2018\",\r\n\t\"hasExpectedSolution\": \"Warfarin\"\r\n }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/selectionSort",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"selectionSort"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/selectionSort/{enter id here}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\"propName\": \"\",\"value\": \"\"}\n]"
+				},
+				"url": {
+					"raw": "http://localhost:3000/selectionSort/{enter id here}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"selectionSort",
+						"{enter id here}"
+					]
+				},
+				"description": "To make a PATCH request, enter the ID in the given field in the request name.Enter the key as a propName and value in the value field."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/selectionSort/{enter ID}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/selectionSort/{enter ID}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"selectionSort",
+						"{enter ID}"
+					]
+				},
+				"description": "DELETE request to delete a selection with the given ID"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/selectionSort",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"date\": \"Enter Integer\",\n    \"time\": \"Enter Integer\",\n    \"hasExpectedSolution\": \"Enter Information\",\n    \"expectedSolution\": \"Enter Information\",\n    \"expectedSelectionConfidence\": \"Enter Information\",\n    \"userSelection\": \"Enter Information\",\n    \"userSelectionConfidence\": \"Enter Information\",\n    \"notSelected\": \"Enter information\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/selectionSort",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"selectionSort"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
