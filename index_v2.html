@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+                    <!--        <link rel="stylesheet" href="css/debug.css">-->
+                    <link rel="stylesheet" href="normalize.css">
+                        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+                            <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+                            <style>
+                                
+                                :root {
+                                    
+                                    /* font (default) */
+                                    font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
+                                }
+                            
+                            #app {
+                                /* grid */
+                                display: grid;
+                                /* grid:4x3 */
+                                grid-template-areas: /* adjusts the distribution of the boxes*/
+                                ". .";
+                                /* spacing */
+                                padding: 50px;
+                                grid-gap: 40px;
+                                /* fullscreen */
+                                width: 98vw; height: 60vh;
+                                grid-template-columns: 50% 50%;
+                            }
+                            
+                            
+                            .grid-item {
+                                /* grid */
+                                display: grid;
+                                /* grid:1x2 */
+                                grid-template-rows: 28% 35%;
+                                /* background */
+                                background: whitesmoke;
+                                /* material-ui.com/#/components/paper */
+                                border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
+                                /* transform */
+                                transition: transform 250ms;
+                            }
+                            
+                            .grid-item:hover {
+                                /* transition */
+                                transition: transform 250ms;
+                                /* transform */
+                                transform: scale(1.06);
+                            }
+                            
+                            /* hover over - certain/not certain button */
+                            .grid-item:hover .divbutton {
+                                display: block;
+                            }
+                            
+                            .grid-cell--top, .grid-cell--bottom {
+                                /* flex */
+                                display: flex;
+                                /* flex:center */
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            
+                            .grid-cell--top    { border-radius: 4px 4px 0 0; }
+                            .grid-cell--bottom { font-weight: 900; font-size: 2.2rem; }
+                            
+                            .bounce { animation: bounce 1s; }
+                            
+                            
+                            
+                            @keyframes bounce {
+                                0% { transform: rotate(  0deg) scale(1.0); }
+                                33% { transform: rotate( 12deg) scale(1.2); }
+                                67% { transform: rotate(-12deg) scale(0.8); }
+                                100% { transform: rotate(  0deg) scale(1.0); }
+                            }
+                            
+                                </style>
+                            </head>
+    <body>
+        
+        
+        <div style=""> <h1> Which drug causes you to worry more? </h1>
+            <h3> Click one or the other </h3> </div>
+        
+        
+        <div id="app" :style="gradient(active)">
+            
+            <swatch
+                v-for="comparison in randomize_comparisons"
+                @click.native="activate(swatch); findother(randomize_comparisons);"
+                @clicked="onClickedChild"
+                :active="active" :comparison="comparison" :effect="gradient"
+                
+                ></swatch>
+            
+            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
+            </span>
+            
+        </div>
+        
+        <ul>
+            <li v-for="comparison in comparisons" >
+                {{ drug1. }} , {{ drug2 }}
+            </li>
+        </ul>
+        
+        <div style="">
+            <span><h3><img src="Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250"></h3></span>
+        </div>
+        
+        <div align="right">Combinations Remaining: </div>
+        
+        <script>
+            
+            "use strict"
+            
+            
+            Vue.component("swatch", {
+                          props: ["active", "swatch", "effect"],
+                          template: `
+                          <div class="grid-item">
+                          
+                          <div class="grid-cell--top" :style="effect(swatch)" >
+                          
+                          <span
+                          :class="{ bounce: swatch == active }"
+                          ></span>
+                          </div>
+                          
+                          <div class="grid-cell--bottom" :style="{ color: swatch.color }">
+                          {{ swatch.drug.toUpperCase() }}
+                          </div>
+                          </div>
+                          `,
+                          
+                        
+                          
+var app = new Vue({
+                el: "#app",
+                data: {
+                active: "",
+                possibleColors: ["#04315D","#D3A40A"],
+                comparisons: [
+                      { drug1: "Lisinopril", drug2: "Losartan"},
+                      { drug1: "Lisinopril", drug2: "Amlodipine"},
+                      { drug1: "Lisinopril", drug2: "Ibuprofen"},
+                      
+                ],
+                
+                confidenceIndicator: "",
+                answer: "",
+                other:"",
+                
+                
+                computed:{
+                shuffle_array: function () {
+                    return this.comparisons.sort(function(){return 0.5 - Math.random()});
+                }
+                },
+                
+                methods: {
+                  randomList: function(comparisons){
+                    var currentIndex = comparisons.length;
+                    var temporaryValue;
+                    var randomIndex;
+                    var myRandomizedList;
+                  
+                      // Clone the original array into myRandomizedList (shallow copy of array)
+                      myRandomizedList = comparisons.slice(0)
+                  
+                      // Randomize elements within the myRandomizedList - the shallow copy of original array
+                      // While there remain elements to shuffle...
+                      while (0 !== currentIndex) {
+                  
+                      // Pick a remaining element...
+                      randomIndex = Math.floor(Math.random() * currentIndex);
+                      currentIndex -= 1;
+                  
+                      // And swap it with the current element.
+                      temporaryValueLeft = myRandomizedList[currentIndex][0];
+                      temporaryValueRight = myRandomizedList[currentIndex][1];
+                      myRandomizedList[currentIndex][0] = myRandomizedList[randomIndex][0];
+                      myRandomizedList[currentIndex][1] = myRandomizedList[randomIndex][1];
+                  
+                      myRandomizedList[randomIndex] = temporaryValue;
+                      myRandomizedList[randomIndex] = temporaryValue;
+                      }
+                  
+                      // Return the new array that has been randomized
+                      return myRandomizedList;
+                    }
+                },
+                  
+                  
+                randomize_comparisons: function() {
+                    var shuffled = shuffle_array(comparisons);
+                    var a = []
+                      a.push(this.comparisons[index][0]);
+                      a.push(this.comparisons[index][1]);
+                  return a;
+                },
+
+            
+                // activate actives a swatch (color)
+                activate: function (comparison) {
+                    this.active = comparison
+                    this.answer = comparison.drug1
+                // reloads the drug selection; 1 second before reload
+                    setTimeout(function(){window.location.reload()}, 1500)
+                },
+                                            
+            </script>
+        
+    </body>
+</html>
+
