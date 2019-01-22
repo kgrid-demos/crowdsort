@@ -6,7 +6,9 @@
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
         <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
-		<style>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        
+        <style>
 
 :root {
 
@@ -81,37 +83,41 @@
     
 
     <body>
-        
-
+        <div id="app">
 
         <div style=""> <h1> Which drug causes you to worry more? </h1>
 				<h3> Click one or the other </h3> </div>
 
-
-		<div id="app" :style="gradient(active)">
+        <div :style="gradient(active)">
+           
 
 			<swatch
-				v-for="swatch in randomize_swatches"
-				@click.native="activate(swatch); findother(randomize_swatches);"
+				v-for="comparison in shuffledComparisons"
+				@click.native="choose(swatch);"
                 @clicked="onClickedChild"
 				:active="active" :swatch="swatch" :effect="gradient"
 
 			></swatch>
 
+
             <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
             </span>
 
+            
+            
+
 		</div>
 
+        
 		<div style="">
          <span><h3><img src="Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250"></h3></span>
 		</div>
         
         <div align="right">Combinations Remaining: </div>
         
-        <script src="/scripts/comparisons.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
-        
+    
+       </div>
     </body>
+    <script src="scripts/comparisons.js">
+        </script>
 </html>

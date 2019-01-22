@@ -38,6 +38,7 @@ comparisons:
 [Losartan, Sertraline],
 [Losartan, Citalopram],
 [Losartan, Amitriptyline],
+
 [Amlodipine, Ibuprofen],
 [Amlodipine, Aspirin],
 [Amlodipine, Naproxen],
@@ -56,6 +57,7 @@ comparisons:
 [Amlodipine, Sertraline],
 [Amlodipine, Citalopram],
 [Amlodipine, Amitriptyline],
+
 [Ibuprofen, Aspirin],
 [Ibuprofen, Naproxen],
 [Ibuprofen, Alprazolam],
@@ -73,6 +75,7 @@ comparisons:
 [Ibuprofen, Sertraline],
 [Ibuprofen, Citalopram],
 [Ibuprofen, Amitriptyline],
+
 [Aspirin, Naproxen],
 [Aspirin, Alprazolam],
 [Aspirin, Clonazepam],
@@ -89,6 +92,7 @@ comparisons:
 [Aspirin, Sertraline],
 [Aspirin, Citalopram],
 [Aspirin, Amitriptyline],
+
 [Naproxen, Alprazolam],
 [Naproxen, Clonazepam],
 [Naproxen, Lorazepam],
@@ -104,6 +108,7 @@ comparisons:
 [Naproxen, Sertraline],
 [Naproxen, Citalopram],
 [Naproxen, Amitriptyline],
+
 [Alprazolam, Clonazepam],
 [Alprazolam, Lorazepam],
 [Alprazolam, Amoxicillin],
@@ -118,6 +123,7 @@ comparisons:
 [Alprazolam, Sertraline],
 [Alprazolam, Citalopram],
 [Alprazolam, Amitriptyline],
+
 [Clonazepam, Lorazepam],
 [Clonazepam, Amoxicillin],
 [Clonazepam, Azithromycin],
@@ -131,6 +137,7 @@ comparisons:
 [Clonazepam, Sertraline],
 [Clonazepam, Citalopram],
 [Clonazepam, Amitriptyline],
+
 [Lorazepam, Amoxicillin],
 [Lorazepam, Azithromycin],
 [Lorazepam, Ciprofloxacin],
@@ -143,6 +150,7 @@ comparisons:
 [Lorazepam, Sertraline],
 [Lorazepam, Citalopram],
 [Lorazepam, Amitriptyline],
+
 [Amoxicillin, Azithromycin],
 [Amoxicillin, Ciprofloxacin],
 [Amoxicillin, Metformin],
@@ -154,6 +162,7 @@ comparisons:
 [Amoxicillin, Sertraline],
 [Amoxicillin, Citalopram],
 [Amoxicillin, Amitriptyline],
+
 [Azithromycin, Ciprofloxacin],
 [Azithromycin, Metformin],
 [Azithromycin, Glyburide],
@@ -164,6 +173,7 @@ comparisons:
 [Azithromycin, Sertraline],
 [Azithromycin, Citalopram],
 [Azithromycin, Amitriptyline],
+
 [Ciprofloxacin, Metformin],
 [Ciprofloxacin, Glyburide],
 [Ciprofloxacin, Liraglutide],
@@ -173,6 +183,7 @@ comparisons:
 [Ciprofloxacin, Sertraline],
 [Ciprofloxacin, Citalopram],
 [Ciprofloxacin, Amitriptyline],
+
 [Metformin, Glyburide],
 [Metformin, Liraglutide],
 [Metformin, Warfarin],
@@ -181,6 +192,7 @@ comparisons:
 [Metformin, Sertraline],
 [Metformin, Citalopram],
 [Metformin, Amitriptyline],
+
 [Glyburide, Liraglutide],
 [Glyburide, Warfarin],
 [Glyburide, Rivaroxaban],
@@ -188,26 +200,32 @@ comparisons:
 [Glyburide, Sertraline],
 [Glyburide, Citalopram],
 [Glyburide, Amitriptyline],
+
 [Liraglutide, Warfarin],
 [Liraglutide, Rivaroxaban],
 [Liraglutide, Apixaban],
 [Liraglutide, Sertraline],
 [Liraglutide, Citalopram],
 [Liraglutide, Amitriptyline],
+
 [Warfarin, Rivaroxaban],
 [Warfarin, Apixaban],
 [Warfarin, Sertraline],
 [Warfarin, Citalopram],
 [Warfarin, Amitriptyline],
+
 [Rivaroxaban, Apixaban],
 [Rivaroxaban, Sertraline],
 [Rivaroxaban, Citalopram],
 [Rivaroxaban, Amitriptyline],
+
 [Apixaban, Sertraline],
 [Apixaban, Citalopram],
 [Apixaban, Amitriptyline],
+
 [Sertraline, Citalopram],
 [Sertraline, Amitriptyline],
+
 [Citalopram, Amitriptyline]
 
 },
