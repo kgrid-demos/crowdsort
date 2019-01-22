@@ -321,11 +321,11 @@ var app = new Vue({
             }
         },
 		// gradient returns a precomposed gradient
-//		gradient: function (swatch) {
-//			return {
-//				background: swatch.drug1,
-//			}
-//		},
+		gradient: function (swatch) {
+			return {
+				background: swatch.drug1,
+			}
+		},
         randomizeColor: function (){
             this.colorIndex = Math.round(Math.random());
         },
