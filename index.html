@@ -16,7 +16,7 @@
 	font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
 }
 
-#app {
+#grid {
 	/* grid */
 	display: grid;
 	/* grid:4x3 */
@@ -88,19 +88,46 @@
         <div style=""> <h1> Which drug causes you to worry more? </h1>
 				<h3> Click one or the other </h3> </div>
 
-        <div :style="gradient(active)">
+        <div :style="gradient(active)" id="grid">
            
+        <div class="grid-item" @click="onClick(0)">
+			<div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}">
+            
+            </div>
+			
+    
+            
+            
+              <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
+				{{ currentComparison.left.toUpperCase() }}
+			</div>
+		</div>
+              
+              
+        <div class="grid-item" @click="onClick(1)">
+			<div class="grid-cell--top" :style="{background: possibleColors[otherColor]}">
+            
 
+            </div>
+			
+              <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
+				{{ currentComparison.right.toUpperCase() }}
+			</div>
+		</div>
+
+<!--
 			<swatch
-				v-for="comparison in shuffledComparisons"
+				v-for="comparison in shuffleComparisons"
 				@click.native="choose(swatch);"
-                @clicked="onClickedChild"
 				:active="active" :swatch="swatch" :effect="gradient"
 
 			></swatch>
+-->
+            
+<!--            <li v-for="comparison in shuffleComparisons"> {{comparison.drug1}} and {{comparison.drug2}}</li>-->
 
 
-            <span> <h2> Answered: {{answer}} greater risk than: {{other}} </h2>
+            <span> <h2 style="color: #000;"> Answered: {{answer}} greater risk than: {{other}} </h2>
             </span>
 
             

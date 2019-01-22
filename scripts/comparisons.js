@@ -1,10 +1,38 @@
+//Vue.component("comparison", {
+//	props: ["comparison"],    
+//    template: '
+//		<div class="grid-item">
+//			<div class="grid-cell--top">
+//            
+////                <span
+////                    :class="{ bounce: swatch == active }"
+////                ></span>
+//            </div>
+//			
+//              <div class="grid-cell--bottom" :style="{ color: #04315D }">
+//				{{ comparison.drug1.toUpperCase() }}
+//			</div>
+//		</div>
+//              
+//              
+//        <div class="grid-item">
+//			<div class="grid-cell--top">
+//            
+////                <span
+////                    :class="{ bounce: swatch == active }"
+////                ></span>
+//            </div>
+//			
+//              <div class="grid-cell--bottom" :style="{ color: #04315D }">
+//				{{ comparison.drug2.toUpperCase() }}
+//			</div>
+//		</div>
+//	',
+//              
+//              
+//})
 
 
-Vue.component("swatch", {
-	props: ["active", "swatch", "effect"],    
-    methods:  {}
-    
-})
 
 var app = new Vue({
 	el: "#app",
@@ -249,18 +277,41 @@ var app = new Vue({
         answer: "",
         other:"",
         shuffledComparisons: "",
+        index:0,
+        colorIndex:0,
 
 	},
 
 	//shuffle list of comparisons on page load
-    mounted:function(){
-		this.shuffleComparisons()
+//    mounted:function(){
+//		this.shuffleComparisons()
+//    },
+    computed: {
+        shuffleComparisons: function (){
+            return this.comparisons.sort((a, b) => Math.random() > .5 ? -1 : 1);
+        },
+        currentComparison: function (){
+            var a = this.shuffleComparisons[this.index];
+            var b = [];
+            b.push(a.drug1);
+            b.push(a.drug2);
+            var i = Math.round(Math.random());
+            var target = {};
+            target.left = b[i];
+            target.right = b[1-i];
+            
+            return target;
+          
+        },
+        otherColor: function(){
+            if (this.colorIndex == 0) {
+                return 1;
+            }else {
+                return 0;
+            }
+        }
     },
 	methods: {
-        shuffleComparisons: function (){
-            this.comparisons.sort((a, b) => Math.random() > .5 ? -1 : 1);
-            //store new shuffled list in shuffledComparisons
-        },
         choose: function (swatch) {
             this.answer = swatch;
             if (swatch = comparison.drug1){
@@ -270,10 +321,23 @@ var app = new Vue({
             }
         },
 		// gradient returns a precomposed gradient
-		gradient: function (swatch) {
-			return {
-				background: swatch.drug1,
-			}
-		}
+//		gradient: function (swatch) {
+//			return {
+//				background: swatch.drug1,
+//			}
+//		},
+        randomizeColor: function (){
+            this.colorIndex = Math.round(Math.random());
+        },
+        onClick: function(drug){
+            if (drug == 0){
+                this.answer = this.currentComparison.left;
+                this.other = this.currentComparison.right;
+            } else {
+                this.answer = this.currentComparison.right;
+                this.other = this.currentComparison.left;
+            }
+            this.index += 1;
+        }
 	}
 })
