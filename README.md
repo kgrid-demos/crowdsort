@@ -25,7 +25,7 @@ This web application lives completely in the browser, no additional software or 
 CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgrid.org/crowdsort/).
 
 
-![Image of CrowdSort landing page](https://imgur.com/a/qE4vM1s)
+<blockquote class="imgur-embed-pub" lang="en" data-id="2b8RRcE"><a href="//imgur.com/2b8RRcE"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ## Built With
 
@@ -48,5 +48,7 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 The Knowledge Grid,
 Department of Learning Health Sciences, Michigan Medicine
 
-![KGrid Logo](https://imgur.com/a/ehUdHlN) ![Michigan Medicine Logo](https://imgur.com/a/jrV9XQg)
+<blockquote class="imgur-embed-pub" lang="en" data-id="IFIBLeO"><a href="//imgur.com/IFIBLeO"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+<blockquote class="imgur-embed-pub" lang="en" data-id="G0fr4DT"><a href="//imgur.com/G0fr4DT"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
