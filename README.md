@@ -49,7 +49,6 @@ The Knowledge Grid\
 Department of Learning Health Sciences, Michigan Medicine
 
 <img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="200"/>
-![KGrid Logo](https://i.imgur.com/IFIBLeO.png)
+<img src="https://i.imgur.com/G0fr4DT.png" alt="KGridLogo" height="100"/>
 
-![Michigan Medicine Logo](https://i.imgur.com/G0fr4DT.png)
 
