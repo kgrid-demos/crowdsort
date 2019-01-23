@@ -6,115 +6,99 @@
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
         <link rel="stylesheet" href="normalize.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-        
         <style>
 
-:root {
+            :root {
 
-	/* font (default) */
-	font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
-}
+                /* font (default) */
+                font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
+            }
 
-#grid {
-	/* grid */
-	display: grid;
-	/* grid:4x3 */
-	grid-template-areas: /* adjusts the distribution of the boxes*/
-		". .";
-	/* spacing */
-	padding: 50px;
-	grid-gap: 40px;
-	/* fullscreen */
-	width: 98vw; height: 60vh;
-	grid-template-columns: 50% 50%;
-}
-
-
-.grid-item {
-	/* grid */
-	display: grid;
-	/* grid:1x2 */
-	grid-template-rows: 28% 35%;
-	/* background */
-	background: whitesmoke;
-	/* material-ui.com/#/components/paper */
-	border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
-	/* transform */
-	transition: transform 250ms;
-}
-
-.grid-item:hover {
-	/* transition */
-	transition: transform 250ms;
-	/* transform */
-	transform: scale(1.06);
-}
-
-/* hover over - certain/not certain button */
-.grid-item:hover .divbutton {
-    display: block;
-}
-
-.grid-cell--top, .grid-cell--bottom {
-	/* flex */
-	display: flex;
-	/* flex:center */
-	justify-content: center;
-	align-items: center;
-}
-
-.grid-cell--top    { border-radius: 4px 4px 0 0; }
-.grid-cell--bottom { font-weight: 900; font-size: 2.2rem; }
-
-.bounce { animation: bounce 1s; }
+            #grid {
+                /* grid */
+                display: grid;
+                /* grid:4x3 */
+                grid-template-areas: /* adjusts the distribution of the boxes*/
+                        ". .";
+                /* spacing */
+                padding: 50px;
+                grid-gap: 40px;
+                /* fullscreen */
+                width: 98vw; height: 60vh;
+                grid-template-columns: 50% 50%;
+            }
 
 
+            .grid-item {
+                /* grid */
+                display: grid;
+                /* grid:1x2 */
+                grid-template-rows: 28% 35%;
+                /* background */
+                background: whitesmoke;
+                /* material-ui.com/#/components/paper */
+                border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
+                /* transform */
+                transition: transform 250ms;
+            }
 
-@keyframes bounce {
-	  0% { transform: rotate(  0deg) scale(1.0); }
-	 33% { transform: rotate( 12deg) scale(1.2); }
-	 67% { transform: rotate(-12deg) scale(0.8); }
-	100% { transform: rotate(  0deg) scale(1.0); }
-}
+            .grid-item:hover {
+                /* transition */
+                transition: transform 250ms;
+                /* transform */
+                transform: scale(1.06);
+            }
 
-		</style>
+            /* hover over - certain/not certain button */
+            .grid-item:hover .divbutton {
+                display: block;
+            }
+
+            .grid-cell--top, .grid-cell--bottom {
+                /* flex */
+                display: flex;
+                /* flex:center */
+                justify-content: center;
+                align-items: center;
+            }
+
+            .grid-cell--top    { border-radius: 4px 4px 0 0; }
+            .grid-cell--bottom { font-weight: 900; font-size: 3vw; }
+            /*.grid-cell--bottom { font-weight: 900; font-size: 2.2rem; }*/
+
+            .bounce { animation: bounce 1s; }
+
+
+
+            @keyframes bounce {
+                0% { transform: rotate(  0deg) scale(1.0); }
+                33% { transform: rotate( 12deg) scale(1.2); }
+                67% { transform: rotate(-12deg) scale(0.8); }
+                100% { transform: rotate(  0deg) scale(1.0); }
+            }
+        </style>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     </head>
-    
-
     <body>
         <div id="app">
-
-        <div style=""> <h1> Which drug causes you to worry more? </h1>
-				<h3> Click one or the other </h3> </div>
-
+        <div style="">
+            <h1> Which drug causes you to worry more? </h1>
+            <h3> Click one or the other </h3>
+        </div>
         <div :style="gradient(active)" id="grid">
-           
         <div class="grid-item" @click="onClick(0)">
-			<div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}">
-            
-            </div>
-			
-    
-            
-            
+			<div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
               <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
 				{{ currentComparison.left.toUpperCase() }}
-			</div>
+              </div>
 		</div>
-              
-              
-        <div class="grid-item" @click="onClick(1)">
-			<div class="grid-cell--top" :style="{background: possibleColors[otherColor]}">
-            
 
-            </div>
-			
+        <div class="grid-item" @click="onClick(1)">
+			<div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
               <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
 				{{ currentComparison.right.toUpperCase() }}
-			</div>
+              </div>
 		</div>
-
 <!--
 			<swatch
 				v-for="comparison in shuffleComparisons"
@@ -126,25 +110,14 @@
             
 <!--            <li v-for="comparison in shuffleComparisons"> {{comparison.drug1}} and {{comparison.drug2}}</li>-->
 
-
-            <span> <h2 style="color: #000;"> Answered: {{answer}} greater risk than: {{other}} </h2>
-            </span>
-
-            
-            
-
+            <span> <h2 style="color: #000;"> Answered: {{answer}} greater risk than: {{other}} </h2></span>
 		</div>
-
-        
 		<div style="">
          <span><h3><img src="Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250"></h3></span>
 		</div>
         
-        <div align="right">Combinations Remaining: </div>
-        
-    
-       </div>
+        <div align="center">Combinations Remaining: </div>
+        </div>
     </body>
-    <script src="scripts/comparisons.js">
-        </script>
+    <script src="scripts/comparisons.js"></script>
 </html>

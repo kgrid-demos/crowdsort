@@ -279,6 +279,7 @@ var app = new Vue({
         shuffledComparisons: "",
         index:0,
         colorIndex:0,
+        choicesLeft: 0,
 
 	},
 
