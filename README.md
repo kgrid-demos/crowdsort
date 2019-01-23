@@ -14,33 +14,36 @@ Imagine if experienced pharmacists could routinely use a system to compare two d
 This idea is the starting point for CrowdSort. 
 
 
-## Getting Started
-
-....
 
 ### Prerequisites
 
-No additional software is required. 
+This web application lives completely in the browser, no additional software or download is required.
 
+
+## Getting Started
+
+CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgrid.org/crowdsort/).
+
+
+![Image of CrowdSort landing page]
+(https://imgur.com/a/qE4vM1s)
 
 ## Built With
 
 * [Vue.js](https://vuejs.org/) - JavaScript Framework
+* [Mongo DB Atlas](https://www.mongodb.com/cloud/atlas) - Automated cloud database service
 
-
-## Versioning
-
-???
 
 ## Authors
 
-Allen Flynn  
-Natalie Lampa  
-Sara Kurosu  
-Jack Allan  
-Koki Sasagawa
+* **Allen Flynn**
+* **Jack Allan**
+* **Koki Sasagawa**
+* **Sara Kurosu** 
+* **Natalie Lampa**  
+* **George Meng**
 
 
 ## Acknowledgments
 
-* Michigan Medicine
+* Department of Learning Health Sciences, Michigan Medicine
