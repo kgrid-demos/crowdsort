@@ -48,7 +48,7 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 The Knowledge Grid\
 Department of Learning Health Sciences, Michigan Medicine
 
-![KGrid Logo](https://i.imgur.com/IFIBLeO.png =200x)
+<img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="200"/>
 ![KGrid Logo](https://i.imgur.com/IFIBLeO.png)
 
 ![Michigan Medicine Logo](https://i.imgur.com/G0fr4DT.png)
