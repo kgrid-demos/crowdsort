@@ -1,5 +1,5 @@
-<p align="center"><img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="70"/></p>
-<p align="center"></p><h1>CrowdSort</h1></p>
+<p align="center"><img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="140"/></p>
+<center> <h1>CrowdSort</h1> </center>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--![last commit](https://img.shields.io/github/last-commit/jack-allan/kgrid-demos/crowdsort.svg?colorB=brightgreen)-->
