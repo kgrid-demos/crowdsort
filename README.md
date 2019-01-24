@@ -1,4 +1,12 @@
-# CrowdSort 
+<p align="center"><img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="70"/></p>
+<p align="center"></p><h1>CrowdSort</h1></p>
+
+![last commit](https://img.shields.io/github/last-commit/jack-allan/kgrid-demos/crowdsort.svg?colorB=brightgreen)
+
+
+
+
+### Overview
 
 CrowdSort is a web app concept in prototype format.
 
@@ -20,20 +28,40 @@ This idea is the starting point for CrowdSort, and the basis of a feasability ex
 This web application lives completely in the browser, no additional software or download is required.
 
 
-## Getting Started
+### Getting Started
 
 CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgrid.org/crowdsort/).
 
 
 ![CrowdSort Home Page](https://i.imgur.com/2b8RRcE.png)
 
-## Built With
+### File Structure
+
+    .
+    ├── ...
+    ├── scripts               # Schema and data
+    │   ├── comparisons.js    # Vue components
+    |
+    ├── index.html            # 
+    ├── app.js                # 
+    ├── normalize.css         # 
+    ├── style                 # 
+    │   ├── style.css         # 
+    ├── database.json         # 
+    ├── server.js             # 
+    ├── api                   # 
+    │   ├── models            #
+    |   ├── routes            #
+    └── ...
+
+
+### Built With
 
 * [Vue.js](https://vuejs.org/) - JavaScript Framework
 * [Mongo DB Atlas](https://www.mongodb.com/cloud/atlas) - Automated cloud database service
 
 
-## Authors
+### Authors
 
 * **Allen Flynn**
 * **Jack Allan**
@@ -43,12 +71,11 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 * **George Meng**
 
 
-## Acknowledgments
+### Acknowledgments
 
 The Knowledge Grid\
 Department of Learning Health Sciences, Michigan Medicine
 
-<img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="70"/>
 <img src="https://i.imgur.com/G0fr4DT.png" alt="Michigan_Medicine_logo" height="50"/>
 
 
