@@ -1,39 +1,6 @@
-//Vue.component("comparison", {
-//	props: ["comparison"],    
-//    template: '
-//		<div class="grid-item">
-//			<div class="grid-cell--top">
-//            
-////                <span
-////                    :class="{ bounce: swatch == active }"
-////                ></span>
-//            </div>
-//			
-//              <div class="grid-cell--bottom" :style="{ color: #04315D }">
-//				{{ comparison.drug1.toUpperCase() }}
-//			</div>
-//		</div>
-//              
-//              
-//        <div class="grid-item">
-//			<div class="grid-cell--top">
-//            
-////                <span
-////                    :class="{ bounce: swatch == active }"
-////                ></span>
-//            </div>
-//			
-//              <div class="grid-cell--bottom" :style="{ color: #04315D }">
-//				{{ comparison.drug2.toUpperCase() }}
-//			</div>
-//		</div>
-//	',
-//              
-//              
-//})
+/* Main function to shuffle drug comparisons*/
 
-
-
+// Create Vue instance called app
 var app = new Vue({
 	el: "#app",
 	data: {
@@ -272,21 +239,14 @@ var app = new Vue({
 				{ drug1: "Citalopram", drug2:"Amitriptyline"},
 				
 		],
-
         confidenceIndicator: "",
-        answer: "",
-        other:"",
+        answer: "_____",
+        other: "_____",
         shuffledComparisons: "",
         index:0,
         colorIndex:0,
-        choicesLeft: 0,
-
+		choicesLeft:211,
 	},
-
-	//shuffle list of comparisons on page load
-//    mounted:function(){
-//		this.shuffleComparisons()
-//    },
     computed: {
         shuffleComparisons: function (){
             return this.comparisons.sort((a, b) => Math.random() > .5 ? -1 : 1);
@@ -300,9 +260,7 @@ var app = new Vue({
             var target = {};
             target.left = b[i];
             target.right = b[1-i];
-            
             return target;
-          
         },
         otherColor: function(){
             if (this.colorIndex == 0) {
@@ -330,6 +288,10 @@ var app = new Vue({
         randomizeColor: function (){
             this.colorIndex = Math.round(Math.random());
         },
+		// Decrement each time selection is made to track progress
+		updateCounter: function (){
+        	this.choicesLeft = this.comparisons.length - this.index
+		},
         onClick: function(drug){
             if (drug == 0){
                 this.answer = this.currentComparison.left;
