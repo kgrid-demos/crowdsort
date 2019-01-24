@@ -1,12 +1,12 @@
 <p align="center"><img src="https://i.imgur.com/IFIBLeO.png" alt="KGridLogo" width="70"/></p>
 <p align="center"></p><h1>CrowdSort</h1></p>
 
-![last commit](https://img.shields.io/github/last-commit/jack-allan/kgrid-demos/crowdsort.svg?colorB=brightgreen)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--![last commit](https://img.shields.io/github/last-commit/jack-allan/kgrid-demos/crowdsort.svg?colorB=brightgreen)-->
 
 
 
-
-### Overview
+### Project Overview
 
 CrowdSort is a web app concept in prototype format.
 
