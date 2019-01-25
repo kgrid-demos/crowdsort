@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 // GET request that fetches all the data
 router.get('/', (req, res, next) => {
   Selection.find()
-    .select('date time hasExpectedSolution expectedSolution expectedSelectionConfidence userSelection userSelectionConfidence notSelected _id')
+    .select('date time userSelected userNotSelected _id')
     .exec()
     .then(docs => {
       const response = {
@@ -18,12 +18,8 @@ router.get('/', (req, res, next) => {
           return {
             date: doc.date,
             time: doc.time,
-            hasExpectedSolution: doc.hasExpectedSolution,
-            expectedSolution: doc.expectedSolution,
-            expectedSelectionConfidence: doc.expectedSelectionConfidence,
-            userSelection: doc.userSelection,
-            userSelectionConfidence: doc.userSelectionConfidence,
-            notSelected: doc.notSelected,
+            userSelected: doc.userSelected,
+            userNotSelected: doc.userNotSelected,
             _id: doc._id
           }
         })
@@ -44,7 +40,7 @@ router.get('/', (req, res, next) => {
 router.get('/:userid', (req, res, next) => {
   const id = req.params.userid;
   Selection.findById(id)
-    .select('date time hasExpectedSolution expectedSolution expectedSelectionConfidence userSelection userSelectionConfidence notSelected _id')
+    .select('date time userSelected userNotSelected _id')
     .exec()
     .then(doc => {
       console.log('From database', doc);
@@ -113,12 +109,8 @@ router.post('/', (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     time: req.body.time,
-    hasExpectedSolution: req.body.hasExpectedSolution,
-    expectedSolution:req.body.expectedSolution,
-    expectedSelectionConfidence:req.body.expectedSelectionConfidence,
-    userSelection:req.body.userSelection,
-    userSelectionConfidence:req.body.userSelectionConfidence,
-    notSelected:req.body.notSelected
+    userSelected: req.body.userSelected,
+    userNotSelected: req.body.userNotSelected
   });
   selection
     .save()
@@ -129,12 +121,8 @@ router.post('/', (req, res, next) => {
         createdSelection: {
           date: result.date,
           time: result.time,
-          hasExpectedSolution: result.hasExpectedSolution,
-          expectedSolution: result.expectedSolution,
-          expectedSelectionConfidence: result.expectedSelectionConfidence,
-          userSelection: result.userSelection,
-          userSelectionConfidence: result.userSelectionConfidence,
-          notSelected: result.notSelected,
+          userSelected: result.userSelected,
+          userNotSelected: result.userNotSelected,
           _id: result._id
         }
       });
