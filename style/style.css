@@ -17,6 +17,7 @@
     width: 90vw; height: 28vw;
     grid-template-columns: 50% 50%;
     margin: auto;
+
 }
 
 .grid-item {
@@ -25,11 +26,15 @@
     /* grid:1x2 */
     grid-template-rows: 28% 35%;
     /* background */
-    background: whitesmoke;
+    background: #eeeeee;
     /* material-ui.com/#/components/paper */
     border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
     /* transform */
     transition: transform 250ms;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
 }
 
 .grid-item:hover {
@@ -41,9 +46,12 @@
     border: 3px solid #02b9ff;
 }
 
-grid-item:visited {
+grid-item:active {
     background: #1e68c0;
+    width: 70px;
+    height: 74px;
 }
+
 
 /* Do we need this part? seems redundantly placed */
 /* hover over - certain/not certain button */
