@@ -5,7 +5,7 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		active: "",
-		possibleColors: ["#04315D","#D3A40A"],
+		possibleColors: ["#04315D","#655a52"],
 		comparisons: [
 		        { drug1: "Lisinopril", drug2: "Losartan"},
 				{ drug1: "Lisinopril", drug2: "Amlodipine"},
