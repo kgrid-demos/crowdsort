@@ -1,5 +1,4 @@
 :root {
-
     /* font (default) */
     font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
 }
@@ -8,33 +7,38 @@
     /* grid */
     display: grid;
     /* grid:4x3 */
-    grid-template-areas: /* adjusts the distribution of the boxes*/
-            ". .";
+    grid-template-areas: "a b";
     /* spacing */
     padding: 50px;
-    grid-gap: 40px;
+    grid-column-gap: 40px;
     /* fullscreen */
     width: 90vw; height: 28vw;
     grid-template-columns: 50% 50%;
-    margin: auto;
-
+    margin:0 auto;
 }
 
 .grid-item {
-    /* grid */
     display: grid;
-    /* grid:1x2 */
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
     grid-template-rows: 28% 35%;
-    /* background */
     background: #eeeeee;
-    /* material-ui.com/#/components/paper */
     border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
-    /* transform */
     transition: transform 250ms;
+    /* Prevent text selection */
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;
+}
+
+.item-left {
+    grid-column: a;
+}
+
+.item-right {
+    grid-column: b;
 }
 
 .grid-item:hover {

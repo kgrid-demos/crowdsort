@@ -238,12 +238,12 @@ var app = new Vue({
 
 			{ drug1: "Citalopram", drug2:"Amitriptyline"},
 		],
-		answer: "_____",
-        other: "_____",
+		answer: "",
+        other: "",
         shuffledComparisons: "",
         index: 0,
         colorIndex: 0,
-		choicesLeft: 20,
+		choicesLeft: 210,
 	},
     computed: {
         shuffleComparisons: function (){
