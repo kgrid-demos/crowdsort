@@ -19,7 +19,6 @@ var app = new Vue({
 				{ drug1: "Lisinopril", drug2: "Azithromycin"},
 				{ drug1: "Lisinopril", drug2: "Ciprofloxacin"},
 				{ drug1: "Lisinopril", drug2:"Metformin"},
-				{ drug1: "Lisinopril", drug2:"Acetaminophen "},
 				{ drug1: "Lisinopril", drug2:"Glyburide"},
 				{ drug1: "Lisinopril", drug2:"Liraglutide "},
 				{ drug1: "Lisinopril", drug2:"Warfarin"},
