@@ -1,0 +1,89 @@
+:root {
+
+    /* font (default) */
+    font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
+}
+
+#grid {
+    /* grid */
+    display: grid;
+    /* grid:4x3 */
+    grid-template-areas: /* adjusts the distribution of the boxes*/
+            ". .";
+    /* spacing */
+    padding: 50px;
+    grid-gap: 40px;
+    /* fullscreen */
+    width: 90vw; height: 28vw;
+    grid-template-columns: 50% 50%;
+    margin: auto;
+}
+
+.grid-item {
+    /* grid */
+    display: grid;
+    /* grid:1x2 */
+    grid-template-rows: 28% 35%;
+    /* background */
+    background: whitesmoke;
+    /* material-ui.com/#/components/paper */
+    border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
+    /* transform */
+    transition: transform 250ms;
+}
+
+.grid-item:hover {
+    /* transition */
+    transition: transform 250ms;
+    /* transform */
+    transform: scale(1.06);
+    /* background: #e1e1; */
+    border: 3px solid #02b9ff;
+}
+
+grid-item:visited {
+    background: #1e68c0;
+}
+
+/* Do we need this part? seems redundantly placed */
+/* hover over - certain/not certain button */
+.grid-item:hover .divbutton {
+    display: block;
+}
+
+.grid-cell--top, .grid-cell--bottom {
+    /* flex */
+    display: flex;
+    /* flex:center */
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-cell--top { border-radius: 4px 4px 0 0; }
+
+.grid-cell--bottom { font-weight: 900; font-size: 3vw; }
+
+.bounce { animation: bounce 1s; }
+
+.header-text {
+}
+
+@keyframes bounce {
+    0% { transform: rotate(  0deg) scale(1.0); }
+    33% { transform: rotate( 12deg) scale(1.2); }
+    67% { transform: rotate(-12deg) scale(0.8); }
+    100% { transform: rotate(  0deg) scale(1.0); }
+}
+
+.selection-output {
+    margin: auto;
+    text-align: center;
+    padding-bottom: 2vw;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5vw
+}
