@@ -270,7 +270,7 @@ var app = new Vue({
     },
 	methods: {
 		setCounter: function () {
-			this.choicesLeft = this.comparisons.length;
+			this.choicesLeft = this.comparisons.length-1;
 		},
         // choose: function (swatch) {
         //     this.answer = swatch;
@@ -287,13 +287,10 @@ var app = new Vue({
 		// },
         randomizeColor: function () {
             this.colorIndex = Math.random() > .5 ? 0 : 1;
-            console.log(this.colorIndex)
         },
 		// Decrement each time selection is made to track progress
 		updateCounter: function () {
-			if (this.choicesLeft >= 1) {
-				this.choicesLeft--;
-			}
+            this.choicesLeft--;
 			console.log(this.choicesLeft);
 		},
         makeSelection: function(choice){

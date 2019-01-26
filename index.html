@@ -12,7 +12,7 @@
     <body>
     <div class="header-text">
         <h1> Which drug causes you to worry more? </h1>
-        <h3> Click one or the other </h3>
+        <h2> Click one or the other </h2>
     </div>
     <div id="app">
         <div id="grid">
@@ -35,9 +35,11 @@
         <!--<div class='selection-output'>-->
             <!--<p style="color: #000;"> Answered: <u>{{answer}}</u> greater risk than: <u>{{other}}</u> </p>-->
         <!--</div>-->
-        <div class="progress-message" align="center">
-            <p v-if="choicesLeft > 0">Comparisons Remaining: {{ choicesLeft }}</p>
-            <p v-else>All comparisons completed!</p>
+        <div class="progress-bar">
+            <div class="progress-message">
+                <p v-if="choicesLeft > 0">Comparisons Remaining: <b>{{ choicesLeft }}</b></p>
+                <p v-else>All comparisons completed!</p>
+            </div>
         </div>
     </div>
     <img src="images/Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250">

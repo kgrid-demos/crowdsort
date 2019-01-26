@@ -68,10 +68,10 @@ h1 {
 }
 
 h2 {
-  font-size: 1em;
-  text-align:  center;
+  font-size: 2em;
+  text-align: center;
   margin: 0.67em 0;
-  color: white;
+  color: grey;
 }
 
 h3 {

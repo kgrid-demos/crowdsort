@@ -49,21 +49,17 @@
 
 grid-item:active {
     background: #1e68c0;
-    width: 70px;
-    height: 74px;
 }
 
 
-/* Do we need this part? seems redundantly placed */
-/* hover over - certain/not certain button */
-.grid-item:hover .divbutton {
-    display: block;
-}
+/*!* Do we need this part? seems redundantly placed *!*/
+/*!* hover over - certain/not certain button *!*/
+/*.grid-item:hover .divbutton {*/
+    /*display: block;*/
+/*}*/
 
 .grid-cell--top, .grid-cell--bottom {
-    /* flex */
     display: flex;
-    /* flex:center */
     justify-content: center;
     align-items: center;
 }
@@ -75,6 +71,19 @@ grid-item:active {
 .bounce { animation: bounce 1s; }
 
 .header-text {
+    font-size: 1vw;
+}
+
+.progress-bar {
+    display: block;
+    width: 26vw;
+    height: 3vw;
+    /*background: #75aaff;*/
+    margin: auto;
+}
+
+.progress-message {
+    font-size: 2vw;
 }
 
 @keyframes bounce {
