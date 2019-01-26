@@ -1,19 +1,15 @@
 :root {
-    /* font (default) */
     font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
 }
 
+/* grid specification */
 #grid {
-    /* grid */
     display: grid;
-    /* grid:4x3 */
-    grid-template-areas: "a b";
-    /* spacing */
+    /*grid-template-areas: "a b";*/
+    grid-template-columns: 1fr 1fr;
     padding: 50px;
     grid-column-gap: 40px;
-    /* fullscreen */
     width: 90vw; height: 28vw;
-    grid-template-columns: 50% 50%;
     margin:0 auto;
 }
 
@@ -31,15 +27,16 @@
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;
+
 }
 
-.item-left {
-    grid-column: a;
-}
+/*.item-left {*/
+    /*grid-column: a;*/
+/*}*/
 
-.item-right {
-    grid-column: b;
-}
+/*.item-right {*/
+    /*grid-column: b;*/
+/*}*/
 
 .grid-item:hover {
     /* transition */

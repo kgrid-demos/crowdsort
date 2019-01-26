@@ -243,13 +243,13 @@ var app = new Vue({
         shuffledComparisons: "",
         index: 0,
         colorIndex: 0,
-		choicesLeft: 210,
+		choicesLeft: 0
 	},
     computed: {
-        shuffleComparisons: function (){
+        shuffleComparisons: function () {
             return this.comparisons.sort((a, b) => Math.random() > .5 ? -1 : 1);
         },
-        currentComparison: function (){
+        currentComparison: function () {
             var a = this.shuffleComparisons[this.index];
             var b = [];
             b.push(a.drug1);
@@ -260,38 +260,44 @@ var app = new Vue({
             target.right = b[1-i];
             return target;
         },
-        otherColor: function(){
+        otherColor: function () {
             if (this.colorIndex == 0) {
                 return 1;
-            }else {
+            } else {
                 return 0;
             }
         }
     },
 	methods: {
-        choose: function (swatch) {
-            this.answer = swatch;
-            if (swatch = comparison.drug1){
-                other = comparison.drug2;
-            } else {
-                other = comparison.drug1;
-            }
-        },
-		// gradient returns a precomposed gradient
-		gradient: function (swatch) {
-			return {
-				background: swatch.drug1,
-			}
+		setCounter: function () {
+			this.choicesLeft = this.comparisons.length;
 		},
-        randomizeColor: function (){
-            this.colorIndex = Math.round(Math.random());
+        // choose: function (swatch) {
+        //     this.answer = swatch;
+        //     if (swatch = comparison.drug1) {
+        //         other = comparison.drug2;
+        //     } else {
+        //         other = comparison.drug1;
+        //     }
+        // },
+		// gradient: function (swatch) {
+		// 	return {
+		// 		background: swatch.drug1,
+		// 	}
+		// },
+        randomizeColor: function () {
+            this.colorIndex = Math.random() > .5 ? 0 : 1;
+            console.log(this.colorIndex)
         },
 		// Decrement each time selection is made to track progress
-		updateCounter: function (){
-        	this.choicesLeft = this.comparisons.length - this.index
+		updateCounter: function () {
+			if (this.choicesLeft >= 1) {
+				this.choicesLeft--;
+			}
+			console.log(this.choicesLeft);
 		},
-        onClick: function(drug){
-            if (drug == 0){
+        makeSelection: function(choice){
+            if (choice == 0){
                 this.answer = this.currentComparison.left;
                 this.other = this.currentComparison.right;
             } else {
@@ -300,5 +306,8 @@ var app = new Vue({
             }
             this.index += 1;
         }
+	},
+	created() {
+		this.setCounter()
 	}
 })

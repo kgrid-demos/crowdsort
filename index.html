@@ -15,14 +15,17 @@
         <h3> Click one or the other </h3>
     </div>
     <div id="app">
-        <div :style="gradient(active)" id="grid">
-            <div class="grid-item item-left" @click="onClick(0); updateCounter();">
+        <div id="grid">
+        <!--<div :style="gradient(active)" id="grid">-->
+            <!--<div class="grid-item item-left" @click="onClick(0); updateCounter();">-->
+            <div class="grid-item" @click="makeSelection(0); updateCounter(); randomizeColor();">
                 <div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
                 <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
                     {{ currentComparison.left.toUpperCase() }}
                 </div>
             </div>
-            <div class="grid-item item-right" @click="onClick(1); updateCounter();">
+            <!--<div class="grid-item item-right" @click="onClick(1); updateCounter();">-->
+            <div class="grid-item" @click="makeSelection(1); updateCounter(); randomizeColor();">
                 <div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
                 <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
                     {{ currentComparison.right.toUpperCase() }}
@@ -33,7 +36,7 @@
             <!--<p style="color: #000;"> Answered: <u>{{answer}}</u> greater risk than: <u>{{other}}</u> </p>-->
         <!--</div>-->
         <div class="progress-message" align="center">
-            <p v-if="index < this.comparisons.length-1">Comparisons Remaining: {{ choicesLeft }}</p>
+            <p v-if="choicesLeft > 0">Comparisons Remaining: {{ choicesLeft }}</p>
             <p v-else>All comparisons completed!</p>
         </div>
     </div>
