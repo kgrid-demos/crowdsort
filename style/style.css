@@ -1,36 +1,42 @@
 :root {
-
-    /* font (default) */
     font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
 }
 
+/* grid specification */
 #grid {
-    /* grid */
     display: grid;
-    /* grid:4x3 */
-    grid-template-areas: /* adjusts the distribution of the boxes*/
-            ". .";
-    /* spacing */
+    /*grid-template-areas: "a b";*/
+    grid-template-columns: 1fr 1fr;
     padding: 50px;
-    grid-gap: 40px;
-    /* fullscreen */
+    grid-column-gap: 40px;
     width: 90vw; height: 28vw;
-    grid-template-columns: 50% 50%;
-    margin: auto;
+    margin:0 auto;
 }
 
 .grid-item {
-    /* grid */
     display: grid;
-    /* grid:1x2 */
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
     grid-template-rows: 28% 35%;
-    /* background */
-    background: whitesmoke;
-    /* material-ui.com/#/components/paper */
+    background: #eeeeee;
     border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
-    /* transform */
     transition: transform 250ms;
+    /* Prevent text selection */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+
 }
+
+/*.item-left {*/
+    /*grid-column: a;*/
+/*}*/
+
+/*.item-right {*/
+    /*grid-column: b;*/
+/*}*/
 
 .grid-item:hover {
     /* transition */
@@ -41,20 +47,19 @@
     border: 3px solid #02b9ff;
 }
 
-grid-item:visited {
+grid-item:active {
     background: #1e68c0;
 }
 
-/* Do we need this part? seems redundantly placed */
-/* hover over - certain/not certain button */
-.grid-item:hover .divbutton {
-    display: block;
-}
+
+/*!* Do we need this part? seems redundantly placed *!*/
+/*!* hover over - certain/not certain button *!*/
+/*.grid-item:hover .divbutton {*/
+    /*display: block;*/
+/*}*/
 
 .grid-cell--top, .grid-cell--bottom {
-    /* flex */
     display: flex;
-    /* flex:center */
     justify-content: center;
     align-items: center;
 }
@@ -66,6 +71,19 @@ grid-item:visited {
 .bounce { animation: bounce 1s; }
 
 .header-text {
+    font-size: 1vw;
+}
+
+.progress-bar {
+    display: block;
+    width: 26vw;
+    height: 3vw;
+    /*background: #75aaff;*/
+    margin: auto;
+}
+
+.progress-message {
+    font-size: 2vw;
 }
 
 @keyframes bounce {
