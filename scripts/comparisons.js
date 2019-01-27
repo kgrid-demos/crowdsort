@@ -6,7 +6,6 @@ var app = new Vue({
 	data: {
 		active: "",
 		possibleColors: ["#04315D","#655a52"],
-        confidenceIndicator: "",
 		comparisons: [
 			{ drug1: "Lisinopril", drug2: "Losartan"},
 			{ drug1: "Lisinopril", drug2: "Amlodipine"},
@@ -203,6 +202,7 @@ var app = new Vue({
 			{ drug1: "Metformin", drug2:"Citalopram"},
 			{ drug1: "Metformin", drug2:"Amitriptyline"},
 
+
 			{ drug1: "Glyburide", drug2:"Liraglutide"},
 			{ drug1: "Glyburide", drug2:"Warfarin"},
 			{ drug1: "Glyburide", drug2:"Rivaroxaban"},
@@ -239,10 +239,10 @@ var app = new Vue({
 			{ drug1: "Citalopram", drug2:"Amitriptyline"},
 		],
 		answer: "",
-        other: "",
-        shuffledComparisons: "",
-        index: 0,
-        colorIndex: 0,
+    other: "",
+    shuffledComparisons: "",
+    index: 0,
+    colorIndex: 0,
 		choicesLeft: 0
 	},
     computed: {
