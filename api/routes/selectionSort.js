@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 // GET request that fetches all the data
 router.get('/', (req, res, next) => {
+  console.log('Select ', req.body.date + " " + req.body.hasExpectedSolution)
   Selection.find()
     .select('date time userSelected userNotSelected _id')
     .exec()
@@ -24,12 +25,11 @@ router.get('/', (req, res, next) => {
           }
         })
       };
-
+      console.log('Select worked ');
       res.status(200).json(response);
-      res.status(200).json(docs);
     })
     .catch(err => {
-      console.log(err);
+      console.log("Error Get " + err);
       res.status(500).json({
         error: err
       });
