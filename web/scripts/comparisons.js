@@ -239,26 +239,37 @@ var app = new Vue({
 			{ drug1: "Citalopram", drug2:"Amitriptyline"},
 		],
 		answer: "",
-    other: "",
-    shuffledComparisons: "",
-    index: 0,
-    colorIndex: 0,
-		choicesLeft: 0
-	},
+        other: "",
+        shuffledComparisons: "",
+        index: 0,
+        colorIndex: 0,
+		choicesLeft: 0,
+        postBody: {
+            date: "",
+            time: "",
+            userSelected: "",
+            userNotSelected: ""
+        }
+    },
     computed: {
         shuffleComparisons: function () {
             return this.comparisons.sort((a, b) => Math.random() > .5 ? -1 : 1);
         },
         currentComparison: function () {
-            var a = this.shuffleComparisons[this.index];
-            var b = [];
-            b.push(a.drug1);
-            b.push(a.drug2);
-            var i = Math.round(Math.random());
             var target = {};
-            target.left = b[i];
-            target.right = b[1-i];
+            if (this.index < this.comparisons.length) {
+                var a = this.shuffleComparisons[this.index];
+                var b = [];
+                b.push(a.drug1);
+                b.push(a.drug2);
+                var i = Math.round(Math.random());
+            
+                target.left = b[i];
+                target.right = b[1-i];
+                
+            }
             return target;
+            
         },
         otherColor: function () {
             if (this.colorIndex == 0) {
@@ -272,19 +283,6 @@ var app = new Vue({
 		setCounter: function () {
 			this.choicesLeft = this.comparisons.length-1;
 		},
-        // choose: function (swatch) {
-        //     this.answer = swatch;
-        //     if (swatch = comparison.drug1) {
-        //         other = comparison.drug2;
-        //     } else {
-        //         other = comparison.drug1;
-        //     }
-        // },
-		// gradient: function (swatch) {
-		// 	return {
-		// 		background: swatch.drug1,
-		// 	}
-		// },
         randomizeColor: function () {
             this.colorIndex = Math.random() > .5 ? 0 : 1;
         },
@@ -294,6 +292,7 @@ var app = new Vue({
 			console.log(this.choicesLeft);
 		},
         makeSelection: function(choice){
+            var self = this;
             if (choice == 0){
                 this.answer = this.currentComparison.left;
                 this.other = this.currentComparison.right;
@@ -301,7 +300,25 @@ var app = new Vue({
                 this.answer = this.currentComparison.right;
                 this.other = this.currentComparison.left;
             }
-            this.index += 1;
+            this.postBody.userSelected = this.answer;
+            this.postBody.userNotSelected = this.other;
+            var t = new Date();
+            this.postBody.date = t.getTime();
+            this.postBody.time = t.getTime();
+            console.log(this.postBody);
+            
+                // Send a POST request
+                axios({
+                  method: 'post',
+                  url: './selectionSort',
+                data: this.postBody;
+                })
+                    .then(function (response) {
+                    console.log(response);
+                    self.index += 1;
+                }) .catch(function (error) {
+                    console.log(error);
+                });
         }
 	},
 	created() {
