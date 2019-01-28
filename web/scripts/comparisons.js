@@ -311,7 +311,7 @@ var app = new Vue({
                 axios({
                   method: 'post',
                   url: './selectionSort',
-                data: this.postBody;
+                data: this.postBody
                 })
                     .then(function (response) {
                     console.log(response);
