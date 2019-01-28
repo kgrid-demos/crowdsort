@@ -290,6 +290,7 @@ var app = new Vue({
 		updateCounter: function () {
             this.choicesLeft--;
 			console.log(this.choicesLeft);
+			console.log('Hello')
 		},
         makeSelection: function(choice){
             var self = this;
@@ -307,18 +308,18 @@ var app = new Vue({
             this.postBody.time = t.getTime();
             console.log(this.postBody);
             
-                // Send a POST request
-                axios({
-                  method: 'post',
-                  url: './selectionSort',
-                data: this.postBody
-                })
-                    .then(function (response) {
-                    console.log(response);
-                    self.index += 1;
-                }) .catch(function (error) {
-                    console.log(error);
-                });
+			// Send a POST request
+			axios({
+				method: 'post',
+				url: './selectionSort',
+				data: this.postBody
+			})
+				.then(function (response) {
+				console.log(response);
+				self.index += 1;
+			}) .catch(function (error) {
+				console.log(error);
+			});
         }
 	},
 	created() {
