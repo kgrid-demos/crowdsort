@@ -263,13 +263,10 @@ var app = new Vue({
                 b.push(a.drug1);
                 b.push(a.drug2);
                 var i = Math.round(Math.random());
-            
                 target.left = b[i];
                 target.right = b[1-i];
-                
             }
             return target;
-            
         },
         otherColor: function () {
             if (this.colorIndex == 0) {
@@ -290,7 +287,6 @@ var app = new Vue({
 		updateCounter: function () {
             this.choicesLeft--;
 			console.log(this.choicesLeft);
-			console.log('Hello')
 		},
         makeSelection: function(choice){
             var self = this;
@@ -303,9 +299,9 @@ var app = new Vue({
             }
             this.postBody.userSelected = this.answer;
             this.postBody.userNotSelected = this.other;
-            var t = new Date();
-            this.postBody.date = t.getTime();
-            this.postBody.time = t.getTime();
+            // var t = new Date();
+            this.postBody.date = moment().format('L');
+            this.postBody.time = moment().format("HH:mm:ss");
             console.log(this.postBody);
             
 			// Send a POST request
@@ -317,7 +313,7 @@ var app = new Vue({
 				.then(function (response) {
 				console.log(response);
 				self.index += 1;
-			}) .catch(function (error) {
+			})  .catch(function (error) {
 				console.log(error);
 			});
         }

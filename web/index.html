@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="style/style.css">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="'moment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     </head>
     <body>
     <div class="header-text">
@@ -18,15 +18,12 @@
     </div>
     <div id="app">
         <div id="grid">
-        <!--<div :style="gradient(active)" id="grid">-->
-            <!--<div class="grid-item item-left" @click="onClick(0); updateCounter();">-->
             <div class="grid-item" @click="makeSelection(0); updateCounter(); randomizeColor();">
                 <div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
                 <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
                     {{ currentComparison.left.toUpperCase() }}
                 </div>
             </div>
-            <!--<div class="grid-item item-right" @click="onClick(1); updateCounter();">-->
             <div class="grid-item" @click="makeSelection(1); updateCounter(); randomizeColor();">
                 <div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
                 <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
@@ -34,9 +31,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class='selection-output'>-->
-            <!--<p style="color: #000;"> Answered: <u>{{answer}}</u> greater risk than: <u>{{other}}</u> </p>-->
-        <!--</div>-->
         <div class="progress-bar">
             <div class="progress-message">
                 <p v-if="choicesLeft > 0">Comparisons Remaining: <b>{{ choicesLeft }}</b></p>
