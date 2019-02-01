@@ -108,7 +108,7 @@ router.post('/', (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     time: req.body.time,
-    comparison: doc.body.comparison,
+    comparison: req.body.comparison,
     userSelected: req.body.userSelected,
     userNotSelected: req.body.userNotSelected
   });
