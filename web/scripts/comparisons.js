@@ -279,7 +279,7 @@ var app = new Vue({
     },
 	methods: {
 		setCounter: function () {
-			this.choicesLeft = this.comparisons.length-1;
+			this.choicesLeft = this.comparisons.length;
 		},
         randomizeColor: function () {
             this.colorIndex = Math.random() > .5 ? 0 : 1;
@@ -290,6 +290,7 @@ var app = new Vue({
 			console.log(this.choicesLeft);
 		},
         makeSelection: function(choice){
+
             var self = this;
             if (choice == 0){
                 this.answer = this.currentComparison.left;
@@ -303,6 +304,8 @@ var app = new Vue({
             this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
             this.postBody.date = moment().format('L');
             this.postBody.time = moment().format("HH:mm:ss");
+
+            // TESTING
             console.log(this.postBody);
             
 			// Send a POST request
@@ -312,14 +315,16 @@ var app = new Vue({
 				data: this.postBody
 			})
 				.then(function (response) {
-				console.log(response);
-				self.index += 1;
-			})  .catch(function (error) {
-				console.log(error);
+					// increment index when successful response
+					console.log(response);
+					self.index += 1;
+			})
+				.catch(function (error) {
+					console.log(error);
 			});
         }
 	},
 	created() {
 		this.setCounter()
 	}
-})
+});

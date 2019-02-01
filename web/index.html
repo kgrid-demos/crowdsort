@@ -17,28 +17,38 @@
         <h2> Click one or the other </h2>
     </div>
     <div id="app">
-        <div id="grid">
-            <div class="grid-item" @click="makeSelection(0); updateCounter(); randomizeColor();">
-                <div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
-                <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
-                    {{ currentComparison.left.toUpperCase() }}
+        <div v-if="choicesLeft > 0">
+            <div id="grid">
+                <div id="left-card" class="grid-item" @click="makeSelection(0); updateCounter(); randomizeColor();">
+                    <div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
+                    <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
+                        {{ currentComparison.left.toUpperCase() }}
+                    </div>
+                </div>
+                <div id="right-card" class="grid-item" @click="makeSelection(1); updateCounter(); randomizeColor();">
+                    <div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
+                    <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
+                        {{ currentComparison.right.toUpperCase() }}
+                    </div>
                 </div>
             </div>
-            <div class="grid-item" @click="makeSelection(1); updateCounter(); randomizeColor();">
-                <div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
-                <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
-                    {{ currentComparison.right.toUpperCase() }}
+        </div>
+        <div v-else>
+            <div class="container">
+                <div class="completion-message">
+                    You have successfully completed all 210 drug comparisons!
+                    Thank you for taking the time to participate in this study.
+                    Please let the moderator know you have finished the survey.
                 </div>
             </div>
         </div>
         <div class="progress-bar">
             <div class="progress-message">
-                <p v-if="choicesLeft > 0">Comparisons Remaining: <b>{{ choicesLeft }}</b></p>
-                <p v-else>All comparisons completed!</p>
+                Comparisons Remaining: <b>{{ choicesLeft }}</b>
             </div>
         </div>
     </div>
-    <img src="images/Signature-Marketing.png"  alt="HTML5 Icon" width="250" height="250">
+    <img src="images/Signature-Marketing.png"  alt="HTML5 Icon" width="300" height="300">
     </body>
     <script src="scripts/comparisons.js"></script>
 </html>
