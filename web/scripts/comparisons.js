@@ -248,7 +248,8 @@ var app = new Vue({
             date: "",
             time: "",
             userSelected: "",
-            userNotSelected: ""
+            userNotSelected: "",
+            comparison: ""
         }
     },
     computed: {
@@ -299,6 +300,7 @@ var app = new Vue({
             }
             this.postBody.userSelected = this.answer;
             this.postBody.userNotSelected = this.other;
+            thi.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
             // var t = new Date();
             this.postBody.date = moment().format('L');
             this.postBody.time = moment().format("HH:mm:ss");
