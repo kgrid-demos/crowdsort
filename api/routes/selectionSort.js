@@ -19,6 +19,7 @@ router.get('/', (req, res, next) => {
           return {
             date: doc.date,
             time: doc.time,
+            comparison: doc.comparison,
             userSelected: doc.userSelected,
             userNotSelected: doc.userNotSelected,
             _id: doc._id
@@ -108,6 +109,7 @@ router.post('/', (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     time: req.body.time,
+    comparison: doc.comparison,
     userSelected: req.body.userSelected,
     userNotSelected: req.body.userNotSelected
   });
@@ -120,6 +122,7 @@ router.post('/', (req, res, next) => {
         createdSelection: {
           date: result.date,
           time: result.time,
+          comparison: doc.comparison,
           userSelected: result.userSelected,
           userNotSelected: result.userNotSelected,
           _id: result._id
