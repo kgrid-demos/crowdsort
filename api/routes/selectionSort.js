@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 
 // GET request that fetches all the data
 router.get('/', (req, res, next) => {
-
   Selection.find()
     .select('date time userSelected userNotSelected _id')
     .exec()
@@ -109,7 +108,7 @@ router.post('/', (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     date: req.body.date,
     time: req.body.time,
-    comparison: doc.comparison,
+    comparison: doc.body.comparison,
     userSelected: req.body.userSelected,
     userNotSelected: req.body.userNotSelected
   });
@@ -122,7 +121,7 @@ router.post('/', (req, res, next) => {
         createdSelection: {
           date: result.date,
           time: result.time,
-          comparison: doc.comparison,
+          comparison: result.comparison,
           userSelected: result.userSelected,
           userNotSelected: result.userNotSelected,
           _id: result._id
