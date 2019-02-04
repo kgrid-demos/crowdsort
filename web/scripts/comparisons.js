@@ -307,9 +307,8 @@ var app = new Vue({
 
             // TESTING
             console.log(this.postBody);
-            
+
 			// Send a POST request
-            //comment
 			axios({
 				method: 'post',
 				url: './selectionSort',
@@ -319,11 +318,11 @@ var app = new Vue({
 					// increment index when successful response
 					console.log(response);
 					self.index += 1;
-			})
+				})
 				.catch(function (error) {
 					console.log(error);
-			});
-        }
+				});
+		}
 	},
 	created() {
 		this.setCounter()
