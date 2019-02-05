@@ -63,6 +63,10 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 * [Mongo DB Atlas](https://www.mongodb.com/cloud/atlas) - Automated cloud database service
 
 
+### Deployment
+
+The CrowdSort is a web app us hosted on Heroku. Details can be found on the [Heroku readme](heroku.md).
+
 ### Authors
 
 * **Allen Flynn**
