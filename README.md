@@ -65,7 +65,7 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 
 ### Deployment
 
-The CrowdSort is a web app us hosted on Heroku. Details can be found on the [Heroku readme](heroku.md).
+The CrowdSort is a web app hosted on Heroku. Details can be found on the [Heroku readme](heroku.md).
 
 ### Authors
 
