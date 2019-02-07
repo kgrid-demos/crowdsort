@@ -307,7 +307,8 @@ var app = new Vue({
             this.postBody.time = moment().format("HH:mm:ss");
 
             // TESTING
-            console.log(this.postBody);
+			console.log("Post data")
+            console.log(this.postBody.comparison);
 
 			// Send a POST request
 			axios({
