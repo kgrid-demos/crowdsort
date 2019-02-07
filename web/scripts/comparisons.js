@@ -313,14 +313,14 @@ var app = new Vue({
 				url: './selectionSort',
 				data: this.postBody
 			})
-				.then(function (response) {
-					// increment index when successful response
-					console.log(response);
-					self.index += 1;
-				})
-				.catch(function (error) {
-					console.log(error);
-				});
+			.then(function (response) {
+				// increment index when successful response
+				console.log(response);
+				self.index += 1;
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 		}
 	},
 	created() {
