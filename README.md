@@ -41,7 +41,7 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 
     .
     ├── ...
-    ├── scripts               # Schema and data
+    ├── web               # Schema and data
     │   ├── comparisons.js    # Vue components
     |
     ├── index.html            # 
