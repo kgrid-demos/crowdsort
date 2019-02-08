@@ -319,8 +319,8 @@ var app = new Vue({
 			.then(function (response) {
 				// increment index when successful response
 				console.log(response);
-				self.index += 1;
-				// setTimeout(self.index += 1, 2000)
+				// self.index += 1;
+				setTimeout(self.index += 1, 2000)
 			})
 			.catch(function (error) {
 				console.log(error);
