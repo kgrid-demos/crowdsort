@@ -290,7 +290,7 @@ var app = new Vue({
             this.choicesLeft--;
 			console.log(this.choicesLeft);
 		},
-        makeSelection: function(choice){
+        makeSelection: function(choice) {
 
             var self = this;
             if (choice == 0){
@@ -300,6 +300,7 @@ var app = new Vue({
                 this.answer = this.currentComparison.right;
                 this.other = this.currentComparison.left;
             }
+            // Populate postbody
             this.postBody.userSelected = this.answer;
             this.postBody.userNotSelected = this.other;
             this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
@@ -307,8 +308,7 @@ var app = new Vue({
             this.postBody.time = moment().format("HH:mm:ss");
 
             // TESTING
-			console.log("Post data")
-            console.log(this.postBody.comparison);
+			console.log(`Comparison: ${this.postBody.comparison}`)
 
 			// Send a POST request
 			axios({
@@ -319,12 +319,12 @@ var app = new Vue({
 			.then(function (response) {
 				// increment index when successful response
 				console.log(response);
-				self.index += 1;
-			})
+				setTimeout(self.index += 1, 2000)
+			}),
 			.catch(function (error) {
 				console.log(error);
 			});
-		}
+		},
 	},
 	created() {
 		this.setCounter()
