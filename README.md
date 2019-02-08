@@ -64,6 +64,10 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 * [mLab MongoDB](https://www.mlab.com/home) - Database Framework
 
 
+### Deployment
+
+The CrowdSort is a web app hosted on Heroku. Details can be found on the [Heroku readme](heroku.md).
+
 ### Authors
 
 * **Allen Flynn**
