@@ -242,7 +242,6 @@ var app = new Vue({
         shuffledComparisons: "",
         index: 0,
         colorIndex: 0,
-		choicesLeft: 0,
         postBody: {
 			date: "",
 			time: "",
@@ -270,6 +269,11 @@ var app = new Vue({
             }
             return target;
         },
+		choicesLeft: function() {
+        	var count =  this.comparison.length - this.index
+			console.log(count)
+			return count
+		},
         otherColor: function () {
             if (this.colorIndex == 0) {
                 return 1;
@@ -279,19 +283,19 @@ var app = new Vue({
         }
     },
 	methods: {
-		// Initialize counter to length of comparisons
-		setCounter: function () {
-			this.choicesLeft = this.comparisons.length;
-		},
+		// // Initialize counter to length of comparisons
+		// setCounter: function () {
+		// 	this.choicesLeft = this.comparisons.length;
+		// },
 		// Randomize card color after each selection randomly
         randomizeColor: function () {
             this.colorIndex = Math.random() > .5 ? 0 : 1;
         },
 		// Decrement each time selection is made to track progress
-		updateCounter: function () {
-            this.choicesLeft--;
-			console.log(this.choicesLeft);
-		},
+		// updateCounter: function () {
+        //     this.choicesLeft--;
+		// 	console.log(this.choicesLeft);
+		// },
         makeSelection: function(choice) {
 
             var self = this;
@@ -339,7 +343,7 @@ var app = new Vue({
 			}
 		}
 	},
-	created() {
-		this.setCounter()
-	}
+	// created() {
+	// 	this.setCounter()
+	// }
 });

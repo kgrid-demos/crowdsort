@@ -19,13 +19,13 @@
     <div id="app">
         <div v-if="choicesLeft > 0">
             <div id="grid">
-                <div class="grid-item" @click="makeSelection(0); updateCounter(); randomizeColor();">
+                <div class="grid-item" @click="makeSelection(0); randomizeColor();">
                     <div class="grid-cell--top" :style="{background: possibleColors[colorIndex]}"></div>
                     <div class="grid-cell--bottom" :style="{color: possibleColors[colorIndex]}">
                         {{ currentComparison.left.toUpperCase() }}
                     </div>
                 </div>
-                <div class="grid-item" @click="makeSelection(1); updateCounter(); randomizeColor();">
+                <div class="grid-item" @click="makeSelection(1); randomizeColor();">
                     <div class="grid-cell--top" :style="{background: possibleColors[otherColor]}"></div>
                     <div class="grid-cell--bottom" :style="{color: possibleColors[otherColor]}">
                         {{ currentComparison.right.toUpperCase() }}
