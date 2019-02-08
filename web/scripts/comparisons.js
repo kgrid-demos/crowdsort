@@ -270,7 +270,7 @@ var app = new Vue({
             return target;
         },
 		choicesLeft: function() {
-        	var count =  this.comparison.length - this.index
+        	var count =  this.comparisons.length - this.index
 			console.log(count)
 			return count
 		},
