@@ -305,7 +305,7 @@ var app = new Vue({
             this.postBody.userNotSelected = this.other;
             this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
             this.postBody.date = moment().format('L');
-            this.postBody.time = moment.HTML5_FMT.TIME_MS().format("HH:mm:ss.SSS");
+            this.postBody.time = moment().format("HH:mm:ss.SSS");
 
             // TESTING
 			console.log(`Comparison: ${this.postBody.comparison}`)
