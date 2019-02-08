@@ -283,19 +283,6 @@ var app = new Vue({
         }
     },
 	methods: {
-		// // Initialize counter to length of comparisons
-		// setCounter: function () {
-		// 	this.choicesLeft = this.comparisons.length;
-		// },
-		// Randomize card color after each selection randomly
-        // randomizeColor: function () {
-        //     this.colorIndex = Math.random() > .5 ? 0 : 1;
-        // },
-		// Decrement each time selection is made to track progress
-		// updateCounter: function () {
-        //     this.choicesLeft--;
-		// 	console.log(this.choicesLeft);
-		// },
         makeSelection: function(choice) {
 
             var self = this;
