@@ -35,13 +35,13 @@ This web application lives completely in the browser, no additional software or 
 CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgrid.org/crowdsort/).
 
 
-![CrowdSort Home Page](https://i.imgur.com/2b8RRcE.png)
+![CrowdSort Home Page](/images/landing_page.png)
 
 ### File Structure
 
     .
     ├── ...
-    ├── scripts               # Schema and data
+    ├── web               # Schema and data
     │   ├── comparisons.js    # Vue components
     |
     ├── index.html            # 
@@ -60,7 +60,8 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 ### Built With
 
 * [Vue.js](https://vuejs.org/) - JavaScript Framework
-* [Mongo DB Atlas](https://www.mongodb.com/cloud/atlas) - Automated cloud database service
+* [Heroku](https://www.heroku.com/) - Cloud Application Platform
+* [mLab MongoDB](https://www.mlab.com/home) - Database Framework
 
 
 ### Deployment

@@ -12,15 +12,15 @@ Once a memeber you should be able to navigate to the [Heroku Dashboard](https://
 
 ## Deploying
 
-1. Crowdsort root directory
-1. herkou login ```herkoku login```
-1. add heroku as a remote repo ```heroku git:remote -a crowdsort```
-1. ```git remote -v``` verifies that you not have to remotes github and git heroku
-1. Push to heroku repo ```git push heroku master``` or if deploying from a branch besides master```git push heroku heroku:master```
-
-Note 
-
-You might need to force the git push to heroku using the git push ```--force```
+- Crowdsort root directory
+- herkou login ```heroku login```
+- add heroku as a remote repo ```heroku git:remote -a crowdsort```
+- ```git remote -v``` verifies that you not have to remotes github and git heroku
+- Push to heroku repo ```git push heroku master``` or if deploying from a branch besides maste r```git push heroku heroku:master```
+- Push custom branch to Heroku
+  ```
+  git push <branch name> heroku:master
+  ```
 
 ## Useful
 - [Heroku and Git](https://devcenter.heroku.com/articles/git)

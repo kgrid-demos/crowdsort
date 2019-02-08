@@ -2,10 +2,8 @@
     font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-serif;
 }
 
-/* grid specification */
 #grid {
     display: grid;
-    /*grid-template-areas: "a b";*/
     grid-template-columns: 1fr 1fr;
     padding: 50px;
     grid-column-gap: 40px;
@@ -15,9 +13,6 @@
 
 .grid-item {
     display: grid;
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
     grid-template-rows: 28% 35%;
     background: #eeeeee;
     border-radius: 6px; box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 60px;
@@ -27,35 +22,17 @@
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;
-
 }
-
-/*.item-left {*/
-    /*grid-column: a;*/
-/*}*/
-
-/*.item-right {*/
-    /*grid-column: b;*/
-/*}*/
 
 .grid-item:hover {
-    /* transition */
     transition: transform 250ms;
-    /* transform */
     transform: scale(1.06);
-    /* background: #e1e1; */
     border: 3px solid #02b9ff;
+    /*background: #d0d0d0;*/
 }
 
-grid-item:active {
-    background: #1e68c0;
-}
-
-
-/*!* Do we need this part? seems redundantly placed *!*/
-/*!* hover over - certain/not certain button *!*/
-/*.grid-item:hover .divbutton {*/
-    /*display: block;*/
+/*.grid-item:active {*/
+    /*background: #1e68c0;*/
 /*}*/
 
 .grid-cell--top, .grid-cell--bottom {
@@ -72,18 +49,48 @@ grid-item:active {
 
 .header-text {
     font-size: 1vw;
+    /* Prevent text selection */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
 }
 
 .progress-bar {
     display: block;
     width: 26vw;
     height: 3vw;
-    /*background: #75aaff;*/
     margin: auto;
 }
 
 .progress-message {
     font-size: 2vw;
+    position: relative;
+    height: 100%;
+    /* Prevent text selection */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
+}
+
+.container{
+    display: flex;
+    width: 90vw;
+    height: 28vw;
+    position: relative;
+    align-items: center;
+    margin: auto;
+}
+
+.completion-message {
+    font-size: 3vw;
+    text-align: center;
+    /* Prevent text selection */
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;
 }
 
 @keyframes bounce {
@@ -93,15 +100,9 @@ grid-item:active {
     100% { transform: rotate(  0deg) scale(1.0); }
 }
 
-.selection-output {
-    margin: auto;
-    text-align: center;
-    padding-bottom: 2vw;
-}
-
 img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5vw
+    padding: 5vw;
 }
