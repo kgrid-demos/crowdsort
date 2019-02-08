@@ -305,7 +305,7 @@ var app = new Vue({
             this.postBody.userNotSelected = this.other;
             this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
             this.postBody.date = moment().format('L');
-            this.postBody.time = moment().format("HH:mm:ss");
+            this.postBody.time = moment().format("HH:mm:ss.SSS");
 
             // TESTING
 			console.log(`Comparison: ${this.postBody.comparison}`)
@@ -319,7 +319,8 @@ var app = new Vue({
 			.then(function (response) {
 				// increment index when successful response
 				console.log(response);
-				setTimeout(self.index += 1, 2000)
+				self.index += 1;
+				// setTimeout(self.index += 1, 2000)
 			}),
 			.catch(function (error) {
 				console.log(error);
