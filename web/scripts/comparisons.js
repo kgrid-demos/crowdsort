@@ -244,12 +244,13 @@ var app = new Vue({
         colorIndex: 0,
 		choicesLeft: 0,
         postBody: {
-            date: "",
-            time: "",
-            comparison: "",
-            userSelected: "",
-            userNotSelected: ""
-        }
+			date: "",
+			time: "",
+			comparison: "",
+			userSelected: "",
+			userNotSelected: ""
+		},
+		clicked: false
     },
     computed: {
         shuffleComparisons: function () {
@@ -262,6 +263,7 @@ var app = new Vue({
                 var b = [];
                 b.push(a.drug1);
                 b.push(a.drug2);
+                // Random card assignment
                 var i = Math.round(Math.random());
                 target.left = b[i];
                 target.right = b[1-i];
@@ -293,38 +295,48 @@ var app = new Vue({
         makeSelection: function(choice) {
 
             var self = this;
-            if (choice == 0){
-                this.answer = this.currentComparison.left;
-                this.other = this.currentComparison.right;
-            } else {
-                this.answer = this.currentComparison.right;
-                this.other = this.currentComparison.left;
-            }
-            // Populate postbody
-            this.postBody.userSelected = this.answer;
-            this.postBody.userNotSelected = this.other;
-            this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
-            this.postBody.date = moment().format('L');
-            this.postBody.time = moment().format("HH:mm:ss.SSS");
 
-            // TESTING
-			console.log(`Comparison: ${this.postBody.comparison}`)
+            if (this.clicked) {
+            	return
+			} else {
 
-			// Send a POST request
-			axios({
-				method: 'post',
-				url: './selectionSort',
-				data: this.postBody
-			})
-			.then(function (response) {
-				// increment index when successful response
-				console.log(response);
-				// self.index += 1;
-				setTimeout(self.index += 1, 2000)
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+            	this.clicked = true;
+
+				if (choice == 0) {
+					this.answer = this.currentComparison.left;
+					this.other = this.currentComparison.right;
+				} else {
+					this.answer = this.currentComparison.right;
+					this.other = this.currentComparison.left;
+				}
+
+				// Populate postBody
+				this.postBody.userSelected = this.answer;
+				this.postBody.userNotSelected = this.other;
+				this.postBody.comparison = this.currentComparison.left + ", " + this.currentComparison.right;
+				this.postBody.date = moment().format('L');
+				this.postBody.time = moment().format("HH:mm:ss.SSS");
+
+				// TESTING
+				console.log(`Comparison: ${this.postBody.comparison}`)
+
+				// Send a POST request
+				axios({
+					method: 'post',
+					url: './selectionSort',
+					data: this.postBody
+				})
+					.then(function (response) {
+						// increment index when successful response
+						console.log(response);
+						self.index += 1;
+						self.clicked = false
+						// setTimeout(self.index += 1, 2000)
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+			}
 		}
 	},
 	created() {
