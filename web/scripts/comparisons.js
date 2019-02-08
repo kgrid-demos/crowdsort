@@ -270,9 +270,9 @@ var app = new Vue({
             return target;
         },
 		choicesLeft: function() {
-        	var count =  this.comparisons.length - this.index
-			console.log(count)
-			return count
+        	var count =  this.comparisons.length - this.index;
+			console.log(count);
+			return count;
 		},
         otherColor: function () {
             if (this.colorIndex == 0) {
@@ -288,9 +288,9 @@ var app = new Vue({
 		// 	this.choicesLeft = this.comparisons.length;
 		// },
 		// Randomize card color after each selection randomly
-        randomizeColor: function () {
-            this.colorIndex = Math.random() > .5 ? 0 : 1;
-        },
+        // randomizeColor: function () {
+        //     this.colorIndex = Math.random() > .5 ? 0 : 1;
+        // },
 		// Decrement each time selection is made to track progress
 		// updateCounter: function () {
         //     this.choicesLeft--;
@@ -334,8 +334,8 @@ var app = new Vue({
 						// increment index when successful response
 						console.log(response);
 						self.index += 1;
-						self.clicked = false
-						// setTimeout(self.index += 1, 2000)
+						self.clicked = false;
+						self.colorIndex = Math.random() > .5 ? 0 : 1;
 					})
 					.catch(function (error) {
 						console.log(error);
@@ -343,7 +343,4 @@ var app = new Vue({
 			}
 		}
 	},
-	// created() {
-	// 	this.setCounter()
-	// }
 });
