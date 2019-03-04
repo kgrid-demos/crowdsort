@@ -41,19 +41,31 @@ CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgr
 
     .
     ├── ...
-    ├── web               # Schema and data
-    │   ├── comparisons.js    # Vue components
-    |
-    ├── index.html            # 
-    ├── app.js                # 
-    ├── normalize.css         # 
-    ├── style                 # 
-    │   ├── style.css         # 
-    ├── database.json         # 
-    ├── server.js             # 
-    ├── api                   # 
-    │   ├── models            #
-    |   ├── routes            #
+    ├── api                                     # 
+    │   ├── CrowdSort1.postman_collection.json  # 
+    │   ├── models                              #
+    │   │   ├── selectionSort.js                #
+    │   ├── routes                              #
+    │   │   ├── selectionSort.js                #
+    ├── check_responses.ipynb                   #
+    ├── data                                    #
+    │   ├── drug_comparison.json                #
+    │   ├── drug_comparisons.txt                #
+    ├── database.json                           # 
+    ├── heroku.md                               #
+    ├── images                                  # 
+    ├── package-lock.json                       #
+    ├── package.json                            #
+    ├── README.md                               #
+    ├── server.js                               #
+    ├── web                                     #
+    │   ├── images                              #
+    │   ├── scripts                             # Schema and data
+    │   │    ├── comparisons.js                 # Vue components
+    │   ├── style                               #
+    │   │    ├── style.css                      #                 
+    │   ├── index.html                          #
+    │   ├── normalize.css                       #
     └── ...
 
 
