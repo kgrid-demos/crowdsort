@@ -32,7 +32,7 @@ This web application lives completely in the browser, no additional software or 
 
 ### Getting Started
 
-CrowdSort can be accessed through the [Knowledge Grid demo page](http://demo.kgrid.org/crowdsort/).
+CrowdSort can be accessed through the [Knowledge Grid demo page](http://crowdsort.herokuapp.com/).
 
 
 ![CrowdSort Home Page](/images/landing_page.png)
