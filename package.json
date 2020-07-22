@@ -21,7 +21,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
-    "mongoose": "^5.4.7",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
     "serve-static": "^1.13.2"
