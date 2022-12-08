@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/kgrid-demos/crowdsort#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mongodb": "^3.1.13",
     "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
